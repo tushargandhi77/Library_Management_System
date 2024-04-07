@@ -4,6 +4,10 @@
   padding: 2rem;
   text-align: center;
 } */
+/* Hide the scrollbar but still allow scrolling */
+body::-webkit-scrollbar {
+  display: none;
+}
 
 .logo {
   height: 6em;
@@ -103,6 +107,115 @@
   animation: glow 3s infinite;
 }
 
-.carousel-item{
-  height: 40vh;
+.let-let-let{
+  height: 40vh !important;
+}
+
+.carousel-inner{
+  border-radius: 5px;
+}
+
+.let-let{
+  height: 80vh;
+}
+
+.animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 40px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.ttttx {
+  margin-top: 50px;
+  margin-bottom: 60px;
+  font-size: 3em;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: textShadowAnimation 2s infinite alternate;
+}
+
+@keyframes textShadowAnimation {
+  0% {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    text-shadow: -2px -2px 6px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.ttx {
+  font-size: 70px;
+}
+
+@media screen and (max-width: 768px) {
+  .ttttx {
+    font-size: 1.5em; /* Adjusted font size for smaller screens */
+    margin-top: 20px; /* Adjusted margin for smaller screens */
+    margin-bottom: 30px; /* Adjusted margin for smaller screens */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Adjusted text shadow for smaller screens */
+  }
+
+  .ttx {
+    font-size: 30px; /* Adjusted font size for smaller screens */
+  }
+}
+
+
+.card-card-card {
+  margin-left:auto;
+  margin-right:auto;
+  width: 350px;
+  padding: 0px;
+  box-shadow: 2px 2px 10px black;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for both transform and box-shadow */
+}
+
+.card-card-card:hover {
+  transform: scale(1.05) rotate(-2deg); /* Scale the card slightly and rotate it on hover */
+  box-shadow: 5px 5px 20px black; /* Adjust the box shadow */
+}
+
+
+.card-card {
+  margin-left:auto;
+  margin-right:auto;
+  width: 350px;
+
+  box-shadow: 2px 2px 10px black;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for both transform and box-shadow */
+}
+
+.card-card:hover {
+  transform: scale(1.05) rotate(1deg); /* Scale the card slightly and rotate it on hover */
+  box-shadow: 5px 5px 20px black; /* Adjust the box shadow */
+}
+
+
+
+.bg-black-black{
+  background: #1e0f54;
 }
