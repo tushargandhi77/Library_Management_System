@@ -1,9 +1,9 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+} */
 
 .logo {
   height: 6em;
@@ -59,4 +59,50 @@
 /* On hover, you can retain the inset shadow */
 .shadow-inset:hover {
   box-shadow: inset 1px 1px 25px black, inset -1px -1px 25px black;
+}
+
+
+.btnhove{
+  padding: 5px;
+  margin-left: 20px;
+  background: rgb(142, 233, 230);
+  font-size: large;
+  border-radius: 4px;
+  transition: background 0.5s ease;
+  transition: border-radius 0.3s ease;
+}
+.btnhove:hover {
+  cursor: pointer;
+  border-radius: 15px;
+
+  background: linear-gradient(
+    rgb(163, 221, 122),
+    rgb(137, 169, 43),
+    rgb(176, 185, 54),
+    rgb(163, 221, 122)
+  );
+  box-shadow: 3px 3px 15px black;
+}
+
+
+/* Define keyframes for glowing effect */
+@keyframes glow {
+  0% {
+    box-shadow: 1px 1px 5px rgb(41, 135, 179), -1px -1px 5px rgb(41, 135, 179);
+  }
+  50% {
+    box-shadow: 4px 4px 15px rgb(41, 135, 179), -4px -4px 15px rgb(41, 135, 179);
+  }
+  100% {
+    box-shadow: 1px 1px 5px rgb(41, 135, 179), -1px -1px 5px rgb(41, 135, 179);
+  }
+}
+
+/* Apply animation to modal content */
+.modal-content {
+  animation: glow 3s infinite;
+}
+
+.carousel-item{
+  height: 40vh;
 }
