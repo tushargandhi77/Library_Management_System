@@ -28,6 +28,10 @@ export default function Navbar() {
         setShowRegisterModal(false);
         handleShowLoginModal();
     };
+    const handlelogout = () => {
+        localStorage.removeItem('authToken');
+        window.location.reload();
+    }
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,19 +48,24 @@ export default function Navbar() {
                         <li className="nav-item mx-2">
                             <Link className="nav-link" to="/about">About</Link>
                         </li>
-                        <li className="nav-item dropdown mx-2">
-                            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </Link>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><Link className="dropdown-item" to="#">Profile</Link></li>
-                                <li><Link className="dropdown-item" to="#">Store</Link></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><Link className="dropdown-item" to="#">Order Details</Link></li>
-                            </ul>
-                        </li>
+                        {(localStorage.getItem("authToken")) ?
+                            <li className="nav-item dropdown mx-2">
+                                <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown
+                                </Link>
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><Link className="dropdown-item" to="#">Profile</Link></li>
+                                    <li><Link className="dropdown-item" to="#">Store</Link></li>
+                                    <li><hr className="dropdown-divider" /></li>
+                                    <li><Link className="dropdown-item" to="#">Order Details</Link></li>
+                                </ul>
+                            </li>
+                            : ""}
                     </ul>
+
+                    {(!localStorage.getItem("authToken"))?
                     <div className="d-flex">
+                        
                         <div className="btn-btn-div">
                             <button className="btnhove" type="button" onClick={handleShowLoginModal}>Login</button>
                         </div>
@@ -64,9 +73,15 @@ export default function Navbar() {
                             <button className="btnhove" type="button" onClick={handleShowRegisterModal}>Register</button>
                         </div>
                     </div>
+                    :
+                    <div className="btn-btn-div">
+                            <button className="btnhove" type="button" onClick={handlelogout}>Logout</button>
+                    </div>
+                    }
                 </div>
+                
             </div>
-            
+
             <Modal show={showLoginModal} onHide={handleCloseLoginModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
