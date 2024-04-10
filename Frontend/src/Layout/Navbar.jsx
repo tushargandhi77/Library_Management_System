@@ -14,6 +14,21 @@ export default function Navbar() {
     const handleCloseRegisterModal = () => setShowRegisterModal(false);
     const handleShowRegisterModal = () => setShowRegisterModal(true);
 
+    const toggleRegisterModal = () => {
+        setShowLoginModal(false);
+        setShowRegisterModal(true);
+    };
+
+    const toggleLoginModal = () => {
+        setShowRegisterModal(false);
+        setShowLoginModal(true);
+    };
+
+    const handleLoginAfterRegistration = () => {
+        setShowRegisterModal(false);
+        handleShowLoginModal();
+    };
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container p-3">
@@ -57,7 +72,8 @@ export default function Navbar() {
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <LoginForm />
+                    <LoginForm handleCloseLoginModal={handleCloseLoginModal} />
+                    <p className="text-center mt-3">Not registered? <button className="btn btn-link" onClick={toggleRegisterModal}>Register here</button></p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseLoginModal}>
@@ -66,12 +82,14 @@ export default function Navbar() {
                 </Modal.Footer>
             </Modal>
 
+            {/* Register Modal */}
             <Modal show={showRegisterModal} onHide={handleCloseRegisterModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Register</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <RegisterForm />
+                    <RegisterForm onSuccess={handleLoginAfterRegistration} />
+                    <p className="text-center mt-3">Already a user? <button className="btn btn-link" onClick={toggleLoginModal}>Login here</button></p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseRegisterModal}>
