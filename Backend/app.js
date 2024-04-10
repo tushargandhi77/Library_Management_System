@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const BooksDetails = require('./route/BooksDetails')
@@ -11,6 +11,7 @@ const dbconnect = require('./db/db');
 dbconnect()
 
 const app = express();
+app.use(cors());
 const port = 3000
 
 app.use(bodyParser.json());
