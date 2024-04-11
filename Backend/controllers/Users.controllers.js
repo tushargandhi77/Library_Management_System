@@ -27,6 +27,11 @@ const createUser = async (req, res) => {
             return res.status(400).json({error: "Email is not valid"})
         }
 
+        const existingUser = await User.findOne({ email: userdetails.email });
+        if (existingUser) {
+            return res.status(400).json({ error: "Email already exists please try another" });
+        }
+
         const salt = await bcrypt.genSalt(10)
 
         userdetails.password = await bcrypt.hash(userdetails.password,salt)

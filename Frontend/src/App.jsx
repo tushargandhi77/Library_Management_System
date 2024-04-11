@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Main from './pages/Main';
 import About from './pages/About';
+import Books from './pages/BooksPage'
 import React from 'react'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
@@ -15,7 +16,8 @@ function App(){
       element: <Layout/>,
       children:[
         {path: "/main",element: <Main/>},
-        {path: "/about",element: <About/>}
+        {path: "/about",element: <About/>},
+        {path: "/books",element: <Books/>}
       ]
     }
   ])

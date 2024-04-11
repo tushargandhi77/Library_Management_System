@@ -22,12 +22,12 @@ export default function RegisterForm({onSuccess}) {
         const json = await response.json()
         console.log(json.message);
         if(json.message!=="success") {
-            alert("Registration failed");
+            alert("Registration failed with error: " + json.error);
+            
         } else {
             alert("Registration successful");
             localStorage.setItem("userEmail", credentials.email);
             localStorage.setItem("authToken", json.authToken);
-            // Close the login modal
             onSuccess()
         }
     }
