@@ -57,7 +57,7 @@ export default function Navbar() {
                                     <li><Link className="dropdown-item" to="#">Profile</Link></li>
                                     <li><Link className="dropdown-item" to="/books">Store</Link></li>
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><Link className="dropdown-item" to="#">Order Details</Link></li>
+                                    <li><Link className="dropdown-item" to="/order">Order Details</Link></li>
                                 </ul>
                             </li>
                             : ""}
@@ -79,7 +79,7 @@ export default function Navbar() {
                             <button className="btnhove" type="button" onClick={handlelogout}>Logout</button>
                     </div>
                     <div className="btn-btn-div">
-                            <button className="btnhove" type="button" onClick={handlelogout}>Orders</button>
+                            <Link to='/order'><button className="btnhove" type="button">Orders</button></Link>
                     </div>
                     </div>
                     }
