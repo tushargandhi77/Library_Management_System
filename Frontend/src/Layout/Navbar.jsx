@@ -50,12 +50,12 @@ export default function Navbar() {
                         </li>
                         {(localStorage.getItem("authToken")) ?
                             <li className="nav-item dropdown mx-2">
-                                <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className="nav-link dropdown-toggle active" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Dropdown
                                 </Link>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><Link className="dropdown-item" to="#">Profile</Link></li>
-                                    <li><Link className="dropdown-item" to="#">Store</Link></li>
+                                    <li><Link className="dropdown-item" to="/books">Store</Link></li>
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><Link className="dropdown-item" to="#">Order Details</Link></li>
                                 </ul>
@@ -74,8 +74,13 @@ export default function Navbar() {
                         </div>
                     </div>
                     :
+                    <div className='d-flex '>
                     <div className="btn-btn-div">
                             <button className="btnhove" type="button" onClick={handlelogout}>Logout</button>
+                    </div>
+                    <div className="btn-btn-div">
+                            <button className="btnhove" type="button" onClick={handlelogout}>Orders</button>
+                    </div>
                     </div>
                     }
                 </div>
