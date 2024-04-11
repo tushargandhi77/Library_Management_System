@@ -12,7 +12,7 @@ export default function BooksPage() {
     if (authToken) {
       setLoggedIn(true);
     } else {
-      navigate('/main'); // Redirect to login page if authToken is not present
+      navigate(`/main`); // Redirect to login page if authToken is not present
     }
   }, []);
 

@@ -11,6 +11,14 @@ export default function OrderConfirmationPage() {
 
     const navigate = useNavigate()
     useEffect(() => {
+
+        const authToken = localStorage.getItem('authToken');
+        if (!authToken) {
+            navigate(`/main`);
+        }
+      }, []);
+
+    useEffect(() => {
         fetch(`http://localhost:3000/books/${bookId}`)
             .then(response => response.json())
             .then(data => {
