@@ -26,22 +26,26 @@ export default function BooksPage() {
       .catch(error => console.log('error fetching data', error))
   }, [])
 
+  const handleRentNow = (bookId) => {
+    navigate(`/books/${bookId}`);
+  };
+
   return (
     <>
       <Row className='d-flex justify-content-center'>
         {books.map(book => (
-          <Col key={book._id} className='mt-5' md={4}>
-            <Card className='card-card-x' style={{ width: '26rem', margin: '0 auto' }}>
+          <Col key={book.bookId} className='mt-5' md={4}>
+            <Card className='card-card-x' style={{ width: '26rem', margin: '0 auto',backgroundColor: '#f0f0f0' }}>
               <Card.Img
                 variant="top"
                 src={book.image}
-                style={{ height: '300px', width: '100%', objectFit: 'cover' }} // Set fixed height and cover the image
+                style={{ height: '350px', width: '85%', objectFit: 'cover',marginLeft:'auto',marginRight:'auto'}} // Set fixed height and cover the image
               />
               <Card.Body>
                 <Card.Title className="text-center" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '200px' }}>
                   {book.title}
                 </Card.Title>
-                <div style={{ overflowY: 'auto', height: '100px', marginBottom: '15px', marginTop: '5px', WebkitOverflowScrolling: 'touch', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '3px' }}>
+                <div style={{ overflowY: 'auto', height: '100px', marginBottom: '15px', marginTop: '5px', WebkitOverflowScrolling: 'touch', backgroundColor:'white', padding: '10px', borderRadius: '5px' }}>
                   <style>
                     {`
                     /* Style the scrollbar for Webkit (Safari, Chrome) */
@@ -71,7 +75,7 @@ export default function BooksPage() {
                 <Card.Text style={{ fontWeight: 'bold' }}>Price: {book.price}</Card.Text>
                 <Card.Text>Stock: {book.stock}</Card.Text>
                 <Row className="justify-content-center">
-                  <Button className='mb-3' variant="outline-primary">Rent Now</Button>
+                  <Button className='mb-3' variant="outline-primary" onClick={() => handleRentNow(book.bookId)}>Rent Now</Button>
                   <Button variant="outline-success">Add to Cart</Button>
                 </Row>
               </Card.Body>
