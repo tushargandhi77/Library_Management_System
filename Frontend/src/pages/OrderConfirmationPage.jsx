@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Button, Col, Row } from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 export default function OrderConfirmationPage() {
     const { bookId } = useParams()
     const [book, setBook] = useState(null)
@@ -16,7 +16,7 @@ export default function OrderConfirmationPage() {
         if (!authToken) {
             navigate(`/main`);
         }
-      }, []);
+    }, []);
 
     useEffect(() => {
         fetch(`http://localhost:3000/books/${bookId}`)
@@ -33,14 +33,20 @@ export default function OrderConfirmationPage() {
         }
     }, [quantity, book]);
 
-    // useEffect(() => {
-    //     if (book) {
-    //         setDur(dur);
-    //     }
-    // }, [dur])
+    const handleConfirmOrder = async () => {
+        try {
 
-    const handleConfirmOrder = async () =>{
-        try{
+            fetch(`http://localhost:3000/cart/bookid/${bookId}`, {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with your fetch operation:', error);
+                });
             const email = localStorage.getItem('userEmail');
             const orderData = {
                 email: email,
@@ -49,17 +55,17 @@ export default function OrderConfirmationPage() {
                 stock: quantity,
                 duration: dur
             };
-            const response = await fetch('http://localhost:3000/rent/',{
-                method:'POST',
-                headers:{
-                    'Content-Type':'application/json'
+            const response = await fetch('http://localhost:3000/rent/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                body:JSON.stringify(orderData)
+                body: JSON.stringify(orderData)
             });
-            if (response.ok && response.status===200) {
+            if (response.ok && response.status === 200) {
                 console.log('Order placed successfully!');
                 navigate(`/placed`);
-                
+
             } else {
                 console.error('Failed to place order:', response.statusText);
                 navigate(`/error`)
@@ -79,13 +85,13 @@ export default function OrderConfirmationPage() {
             <h1 className="mb-4">Confirm Order</h1>
             <Row>
                 <Col md={4}>
-                    <Card className="mb-4" style={{ height: '400px', margin: '0 auto', backgroundColor: '#f0f0f0' }}>
+                    <Card className="mb-4" style={{ height: '420px', margin: '0 auto', backgroundColor: '#f0f0f0' }}>
                         <Card.Img variant="top" src={book.image} style={{ height: '350px', width: '65%', objectFit: 'cover', marginLeft: 'auto', marginRight: 'auto', marginTop: '-10px' }} />
                     </Card>
 
                 </Col>
                 <Col md={8}>
-                    <Card className="mb-4" style={{ height: "400px", backgroundColor: '#f0f0f0' }}>
+                    <Card className="mb-4" style={{ height: "420px", backgroundColor: '#f0f0f0' }}>
                         <Card.Body>
                             <Card.Title>{book.title}</Card.Title>
                             <Card.Text>{book.description}</Card.Text>
@@ -118,7 +124,7 @@ export default function OrderConfirmationPage() {
                                     />
                                 </div>
                             </div>
-                            <Button variant="outline-primary mt-2" onClick={handleConfirmOrder}>Confirm Order</Button>
+                            <Button variant="outline-primary mt-2" onClick={() => handleConfirmOrder()}>Confirm Order</Button>
                         </Card.Body>
                     </Card>
                 </Col>

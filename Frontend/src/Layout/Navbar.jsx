@@ -80,7 +80,7 @@ export default function Navbar() {
                                     <button className="btnhove" type="button" onClick={handlelogout}>Logout</button>
                                 </div>
                                 <div className="btn-btn-div">
-                                    <Link to='/order'><button className="btnhove" type="button">Orders</button></Link>
+                                    <Link to='/cart'><button className="btnhove" type="button">My Cart</button></Link>
                                 </div>
                             </div>
                         }
