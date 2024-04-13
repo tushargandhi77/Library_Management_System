@@ -1,5 +1,6 @@
-import React from 'react'
+import React ,{useEffect} from 'react'
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 const Coin = ({ left }) => (
     <div className="coin" style={{ left: left }}></div>
   );
@@ -8,10 +9,18 @@ const Coin = ({ left }) => (
     <div className="confirmation-container">
       <div className="tick-symbol">&#10004;</div>
       <p className='plced-plced-djehdjd'>Order Placed Successfully</p>
-      <Link to='/main' className='dhdhjdhfdlfjdjlfljdo'>Go to Home</Link>
+      <Link to='/order' className='dhdhjdhfdlfjdjlfljdo'>Go to Orders</Link>
     </div>
   );
 export default function PlacedOrder() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const authToken = localStorage.getItem('authToken');
+    if (!authToken) {
+        navigate(`/main`);
+    }
+  }, []);
   return (
     <div className='main-main-body-body'>
     <div className="coins-container">

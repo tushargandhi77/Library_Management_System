@@ -43,8 +43,25 @@ const deletecart = async (req,res)=>{
     }
 }
 
+const deletecartbybookid = async (req,res)=>{
+    try {
+        const { bookId } = req.params;
+
+        const deletedCart = await CardDetails.findOneAndDelete({ bookId });
+
+        if (!deletedCart) {
+            return res.status(404).json({ message: "Item not found" });
+        }
+
+        res.json({ message: "Item deleted" });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+}
+
 module.exports = {
     addToCart,
     getCart,
-    deletecart
+    deletecart,
+    deletecartbybookid
 }

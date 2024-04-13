@@ -5,6 +5,23 @@
   text-align: center;
 } */
 /* Hide the scrollbar but still allow scrolling */
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightblue;
+  border-radius: 4px;
+}
+
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -81,8 +98,8 @@ body::-webkit-scrollbar {
 
   background: linear-gradient(
     rgb(163, 221, 122),
-    rgb(137, 169, 43),
-    rgb(176, 185, 54),
+    rgb(244, 240, 209),
+    rgb(244, 240, 209),
     rgb(163, 221, 122)
   );
   box-shadow: 3px 3px 15px black;
@@ -430,3 +447,5 @@ Animation text for scrooll
     transform: translateX(-100%);
   }
 }
+
+

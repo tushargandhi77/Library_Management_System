@@ -5,6 +5,10 @@ const CardDetailsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    bookId: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true

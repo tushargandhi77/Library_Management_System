@@ -10,6 +10,7 @@ import Confirm from './pages/OrderConfirmationPage'
 import Error from './pages/Failed';
 import Placed from './pages/PlacedOrder'
 import Order from './pages/Orders'
+import Cart from './pages/Cart'
 import React from 'react'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
@@ -26,6 +27,7 @@ function App(){
         {path:"/error",element: <Error/>},
         {path:"/placed",element: <Placed/>},
         {path:'/order',element: <Order/>},
+        {path:"/cart",element: <Cart/>},
       ]
     }
   ])
