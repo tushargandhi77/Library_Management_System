@@ -48,9 +48,13 @@ export default function RegisterForm({onSuccess}) {
                 <label htmlFor="password" className="form-label">Password</label>
                 <input type="password" className="form-control" id="password" value={credentials.password} onChange={onchange} required />
             </div>
-            <div className="mb-3">
+            {/* <div className="mb-3">
                 <label htmlFor="role" className="form-label">Role</label>
                 <input type="text" className="form-control" id="role" value={credentials.role} onChange={onchange} required />
+            </div> */}
+            <div className="mb-3">
+                <label htmlFor="password" className="form-label">Confirm Password</label>
+                <input type="password" className="form-control" id="password" value={credentials.password} onChange={onchange} required />
             </div>
             <div className="d-flex justify-content-center">
                 <button type="submit" className="btn btn-outline-primary w-100">Register</button>
