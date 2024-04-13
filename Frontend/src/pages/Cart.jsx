@@ -64,7 +64,7 @@ export default function Cart() {
         </div>
       ) : (
         <Row className='d-flex justify-content-center'>
-          {books.map(book => (
+          {books.slice().reverse().map(book => (
             <Col key={book._id} className='mt-5' md={4}>
               <Card className='card-card-x' style={{ width: '26rem', margin: '0 auto', backgroundColor: '#f0f0f0' }}>
                 <Card.Img
