@@ -10,12 +10,7 @@ export default function Main() {
     <>
       <div className='container rounded-3'>
         <div className="d-flex justify-content-center mt-4 mb-4">
-          <div id="scroll-container">
-            <div id="scroll-text">
-
           <h1 className='animate-charcter'>WElCOME TO LIBRALOGIC</h1>
-            </div>
-          </div>
         </div>
         <Carousal />
       </div>
