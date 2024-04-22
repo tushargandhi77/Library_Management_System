@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
+import Logo from '../assets/logo.svg'
 
 export default function Navbar() {
     const [showLoginModal, setShowLoginModal] = useState(false);
@@ -37,7 +38,7 @@ export default function Navbar() {
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container p-3">
-                    <Link className="navbar-brand" to="/main">LibraLogic</Link>
+                    <Link className="navbar-brand" to="/main"><img src={Logo} alt="lo" style={{height:'60px',width:'60px'}}/></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
