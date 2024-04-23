@@ -5,6 +5,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Main from './pages/Main';
 import About from './pages/About';
+import Contactus from './pages/Contactus.jsx';
+import Feedback from './pages/Feedback.jsx';
 import Books from './pages/BooksPage'
 import Confirm from './pages/OrderConfirmationPage'
 import Error from './pages/Failed';
@@ -20,8 +22,10 @@ function App(){
       path: "/",
       element: <Layout/>,
       children:[
-        {path: "/main",element: <Main/>},
+        {path: "/",element: <Main/>},
         {path: "/about",element: <About/>},
+        {path: "/contactus",element: <Contactus/>},
+        {path: "/feedback" ,element: <Feedback/>},
         {path: "/books",element: <Books/>},
         {path:"/books/:bookId",element:<Confirm/>},
         {path:"/error",element: <Error/>},
