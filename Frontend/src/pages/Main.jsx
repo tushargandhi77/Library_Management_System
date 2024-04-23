@@ -28,7 +28,7 @@ export default function Main() {
       <CardSlier />
       <div className="ttttx">
         <center>
-          <h3 className="ttx">Here Our Main Features</h3>
+          <h3 className="ttx">Here Our Special Features</h3>
         </center>
       </div>
       <CardProduct />
