@@ -7,7 +7,7 @@ export default function Failed() {
         <img src={error} alt="404 Error Illustration"/>
         <h1>Oops! Page Not Found</h1>
         <p>The page you are looking for might be under construction or doesn't exist.</p>
-        <Link to="/main">Go back to the home page</Link>
+        <Link to="/">Go back to the home page</Link>
     </div>
   )
 }

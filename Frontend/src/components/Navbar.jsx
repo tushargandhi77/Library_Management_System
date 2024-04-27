@@ -48,10 +48,10 @@ export default function Navbar() {
                                 <Link className="nav-link" to="/">Home</Link>
                             </li>
                             <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/about">About</Link>
+                                <Link className="nav-link" to="/contactus">Contact us</Link>
                             </li>
                             <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/contactus">Contact us</Link>
+                                <Link className="nav-link" to="/about">About</Link>
                             </li>
                             <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/feedback">Feedback</Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
                                         Dropdown
                                     </Link>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><Link className="dropdown-item" to="#">Profile</Link></li>
+                                        <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
                                         <li><Link className="dropdown-item" to="/books">Store</Link></li>
                                         <li><hr className="dropdown-divider" /></li>
                                         <li><Link className="dropdown-item" to="/order">Order Details</Link></li>
