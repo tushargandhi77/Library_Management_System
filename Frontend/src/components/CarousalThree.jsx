@@ -1,30 +1,33 @@
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from './ExampleCarouselImage';
+import C1 from '../assets/contact1.jpg';
+import C2 from '../assets/contact2jpg.jpg';
+import C3 from '../assets/contact3.jpg';
 
 function UncontrolledExample() {
   return (
-    <Carousel>
+    <Carousel controls={false} interval={3000} indicators={false}>
       <Carousel.Item className='let-let'>
-        <ExampleCarouselImage imageUrl="https://source.unsplash.com/random/900x700/?books" altText="First slide"/>
+        <ExampleCarouselImage imageUrl={C1} altText="First slide"/>
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          {/* <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className='let-let'>
-        <ExampleCarouselImage imageUrl="https://source.unsplash.com/random/900x700/?books" altText="First slide"/>
+        <ExampleCarouselImage imageUrl={C2} altText="First slide"/>
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          {/* <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className='let-let'>
-        <ExampleCarouselImage imageUrl="https://source.unsplash.com/random/900x700/?books" altText="First slide" />
+        <ExampleCarouselImage imageUrl={C3} altText="First slide" />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          {/* <h3>Third slide label</h3>
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          </p> */}
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
