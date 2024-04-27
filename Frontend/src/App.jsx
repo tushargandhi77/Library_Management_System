@@ -16,6 +16,7 @@ import Cart from './pages/Cart'
 import React from 'react'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
+
 function App(){
   const router = createBrowserRouter([
     {
