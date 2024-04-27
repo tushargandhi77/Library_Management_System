@@ -5,20 +5,20 @@ export default function LoginForm({ handleCloseLoginModal }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        const response = await fetch('http://localhost:3000/users/login',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
+
+        const response = await fetch('http://localhost:3000/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
             },
-            body:JSON.stringify({
+            body: JSON.stringify({
                 email: credentials.email,
                 password: credentials.password
             })
         })
         const json = await response.json();
 
-        if(!json.success) {
+        if (!json.success) {
             alert("Enter valid credentials");
         } else {
             alert("Login successful");
