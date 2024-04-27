@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
-import LoginForm from '../components/LoginForm';
-import RegisterForm from '../components/RegisterForm';
+import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 import Logo from '../assets/logo.svg'
 
 export default function Navbar() {
