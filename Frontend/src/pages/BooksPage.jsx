@@ -14,7 +14,7 @@ export default function BooksPage() {
     if (authToken) {
       setLoggedIn(true);
     } else {
-      navigate(`/main`);
+      navigate('/');
     }
   }, []);
 

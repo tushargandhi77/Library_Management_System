@@ -18,7 +18,7 @@ export default function PlacedOrder() {
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
-        navigate(`/main`);
+        navigate('/');
     }
   }, []);
   return (

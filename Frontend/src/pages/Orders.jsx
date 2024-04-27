@@ -10,7 +10,7 @@ export default function Orders() {
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
-        navigate(`/main`);
+        navigate('/');
     }
   }, []);
 
@@ -20,7 +20,7 @@ export default function Orders() {
       try {
         const email = localStorage.getItem('userEmail');
         if (!email) {
-          navigate(`/main`);
+          navigate('/');
         }
         const response = await fetch('http://localhost:3000/rent/', {
           method: 'PUT',

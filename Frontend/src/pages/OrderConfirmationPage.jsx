@@ -14,7 +14,7 @@ export default function OrderConfirmationPage() {
 
         const authToken = localStorage.getItem('authToken');
         if (!authToken) {
-            navigate(`/main`);
+            navigate('/');
         }
     }, []);
 
