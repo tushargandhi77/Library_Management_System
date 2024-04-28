@@ -78,21 +78,27 @@ export default function Navbar() {
                     </div>
                     {(!localStorage.getItem("authToken")) ?
                         <div className="d-flex">
-                            <div className="btn-btn-div">
-                                <button className="btnhove" type="button" onClick={handleShowLoginModal}>Login</button>
-                            </div>
-                            <div className="btn-btn-div">
-                                <button className="btnhove" type="button" onClick={handleShowRegisterModal}>Register</button>
-                            </div>
+                            <ul>
+                                <li className="btnhover" type="button" onClick={handleShowLoginModal}>
+                                    Sign in<span></span><span></span><span></span><span></span>
+                                </li>
+                                <li className="btnhover" type="button" onClick={handleShowRegisterModal}>
+                                    Sign up<span></span><span></span><span></span><span></span>
+                                </li>
+                            </ul>
                         </div>
                         :
                         <div className='d-flex '>
-                            <div className="btn-btn-div">
-                                <button className="btnhove" type="button" onClick={handlelogout}>Logout</button>
-                            </div>
-                            <div className="btn-btn-div">
-                                <Link to='/cart'><button className="btnhove" type="button">My Cart</button></Link>
-                            </div>
+                            <ul>
+                                <li className="btnhover" type="button" onClick={handlelogout}>
+                                    Logout<span></span><span></span><span></span><span></span>
+                                </li>
+                                <Link to='/cart'>
+                                <li className="btnhover" type="button">
+                                    My Cart<span></span><span></span><span></span><span></span>
+                                </li>
+                                </Link>
+                            </ul>
                         </div>
                     }
                 </div>
