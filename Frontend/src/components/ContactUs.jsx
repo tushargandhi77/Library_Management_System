@@ -2,8 +2,9 @@ import React from 'react';
 
 export default function ContactUs() {
     const inputStyle = { width: '48%' };
-    const labelStyle = { marginLeft: '-317px' };
-    const buttonStyle = { marginLeft: '-239px' };
+    const labelStyle = { marginLeft: '-317px'};
+    const buttonStyle = { marginLeft: 'auto', marginRight: 'auto', display: 'block' };
+    
 
     return (
         <div className="d-flex flex-column align-items-center bg-black-black mt-5 rounded-1">
