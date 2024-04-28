@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
-import Logo from '../assets/logo.svg'
+import './Navbar.css';
+import Logo from '../assets/navbar/logo.png';
+import search_icon_light from '../assets/navbar/search-w.png';
 
 export default function Navbar() {
     const [showLoginModal, setShowLoginModal] = useState(false);
@@ -36,16 +38,16 @@ export default function Navbar() {
 
     return (
         <>
+            {/* navbar start */}
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container p-3">
-                    <Link className="navbar-brand" to="/">LibraLogic</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <div className='navbar'>
+                <Link className="nav-link" to="/"><img src={Logo} alt="" className='logo'/></Link>
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/">Home</Link>
+                            </li>
+                            <li className="nav-item mx-2">
+                                <Link className="nav-link" to="/bookproduct">Books</Link>
                             </li>
                             <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/contactus">Contact us</Link>
@@ -69,32 +71,34 @@ export default function Navbar() {
                                     </ul>
                                 </li>
                                 : ""}
-                        </ul>
-
-                        {(!localStorage.getItem("authToken")) ?
-                            <div className="d-flex">
-
-                                <div className="btn-btn-div">
-                                    <button className="btnhove" type="button" onClick={handleShowLoginModal}>Login</button>
-                                </div>
-                                <div className="btn-btn-div">
-                                    <button className="btnhove" type="button" onClick={handleShowRegisterModal}>Register</button>
-                                </div>
-                            </div>
-                            :
-                            <div className='d-flex '>
-                                <div className="btn-btn-div">
-                                    <button className="btnhove" type="button" onClick={handlelogout}>Logout</button>
-                                </div>
-                                <div className="btn-btn-div">
-                                    <Link to='/cart'><button className="btnhove" type="button">My Cart</button></Link>
-                                </div>
-                            </div>
-                        }
+                    </ul>
+                    <div className='search-box'>
+                        <input type='text' placeholder='search'/>
+                        <img src={search_icon_light} alt=""/>
                     </div>
-
+                    {(!localStorage.getItem("authToken")) ?
+                        <div className="d-flex">
+                            <div className="btn-btn-div">
+                                <button className="btnhove" type="button" onClick={handleShowLoginModal}>Login</button>
+                            </div>
+                            <div className="btn-btn-div">
+                                <button className="btnhove" type="button" onClick={handleShowRegisterModal}>Register</button>
+                            </div>
+                        </div>
+                        :
+                        <div className='d-flex '>
+                            <div className="btn-btn-div">
+                                <button className="btnhove" type="button" onClick={handlelogout}>Logout</button>
+                            </div>
+                            <div className="btn-btn-div">
+                                <Link to='/cart'><button className="btnhove" type="button">My Cart</button></Link>
+                            </div>
+                        </div>
+                    }
                 </div>
+                {/* navbar end */}
 
+                {/* Login Modal */}
                 <Modal show={showLoginModal} onHide={handleCloseLoginModal}>
                     <Modal.Header closeButton>
                         <Modal.Title>Login</Modal.Title>
