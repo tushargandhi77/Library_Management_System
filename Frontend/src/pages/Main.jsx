@@ -5,6 +5,7 @@ import CardSlier from '../components/CardSlider'
 import CardProduct from '../components/CardProduct'
 import CarousalThree from '../components/CarousalThree'
 import ContactUs from '../components/ContactUs'
+import CardCard from '../components/CardCard'
 export default function Main() {
   return (
     <>
@@ -22,17 +23,17 @@ export default function Main() {
       <CarouselFade />
       <div className="ttttx">
         <center>
-          <h3 className="ttx">Here Our Main Features</h3>
+          <h3 className="ttx" >Here Our Main Features</h3>
         </center>
       </div>
-      <CardSlier />
+      {/* <CardSlier /> */}
+      <CardCard />
       <div className="ttttx">
         <center>
           <h3 className="ttx">Here Our Special Features</h3>
         </center>
       </div>
       <CardProduct />
-
       <div className="row g-0">
         <div className='col-md-6 mt-5'>
           <CarousalThree />

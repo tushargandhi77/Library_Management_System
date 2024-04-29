@@ -3,9 +3,9 @@ import { Carousel, Card, Row, Col,Button  } from 'react-bootstrap';
 
 const CardProduct = () => {
   return (
-    <Carousel>
+    <Carousel indicators={false}>
       <Carousel.Item>
-        <Row className="d-flex justify-content-between">
+        <Row className="">
           <Col className='mb-5 mt-5'>
             <Card className='card-card'>
               <Card.Img variant="top" src="https://source.unsplash.com/random/900x700/?books" />

@@ -5,7 +5,7 @@
     justify-content: space-between;
     background: #ffffff;
     padding: 0px 2px;
-    background-color: rgb(244, 238, 190);
+    background-color: rgb(210, 208, 196);
 }
 .logo{
     width: 160px;
@@ -52,7 +52,6 @@ ul li{
 }
 
 
-/* button */
 .btnhover {
     --c: rgb(212, 203, 182);
     text-decoration-color: var(--c);
