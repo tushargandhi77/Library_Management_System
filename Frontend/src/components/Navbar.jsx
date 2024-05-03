@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
@@ -35,6 +35,36 @@ export default function Navbar() {
         window.location.reload('/');
     }
 
+    const [books, setBooks] = useState([]);
+
+
+    useEffect(() => {
+        const fetchCart = async () => {
+            try {
+                const email = localStorage.getItem('userEmail');
+                if (!email) {
+                    navigate('/');
+                    return; // Added return statement to avoid executing further code
+                }
+                const response = await fetch(`http://localhost:3000/cart/${email}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch cart');
+                }
+                const cartData = await response.json();
+
+                setBooks(cartData);
+                console.log(cartData)
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchCart();
+    }, []);
+
+    // Calculate total number of items in the cart
+    const cartItemCount = Array.from(new Set(books.map(book => book._id))).length;
+
+
     return (
         <>
             {/* navbar start */}
@@ -58,7 +88,7 @@ export default function Navbar() {
                                         Dropdown
                                     </Link>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><Link className="dropdown-item" to="#">Profile</Link></li>
+                                        <li><Link className="dropdown-item" to="https://tushargandhi77-book-recommender-system.hf.space/">Recommend</Link></li>
                                         <li><Link className="dropdown-item" to="/books">Store</Link></li>
                                         <li><hr className="dropdown-divider" /></li>
                                         <li><Link className="dropdown-item" to="/order">Order Details</Link></li>
@@ -87,7 +117,8 @@ export default function Navbar() {
                                     <button className="custom-btn btn-5 mx-2" type="button" onClick={handlelogout}><span>Logout</span></button>
                                 </div>
                                 <div className="btn-btn-div">
-                                    <Link to='/cart'><button className="custom-btn btn-12 " type="button"><span>Click!</span><span>My Cart</span></button></Link>
+                                    <Link to='/cart'><button className="custom-btn btn-12 " type="button"><span>{cartItemCount > 0 ? `${cartItemCount}` : '0'}</span>
+                                        <span>My Cart</span></button></Link>
                                 </div>
                             </div>
                         }
