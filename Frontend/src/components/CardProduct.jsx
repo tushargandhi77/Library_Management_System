@@ -16,6 +16,7 @@ const CardProduct = () => {
                 </Card.Text>
                 <Card.Text className="text-center mb-3">Quantity: 10</Card.Text>
                 <Button variant="outline-success" className="w-100">Buy Now</Button>
+                {/* <button className='custom-btn btn-12'>Buy Now</button> */}
               </Card.Body>
             </Card>
           </Col>
