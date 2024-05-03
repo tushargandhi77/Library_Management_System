@@ -85,13 +85,13 @@ export default function OrderConfirmationPage() {
             <h1 className="mb-4">Confirm Order</h1>
             <Row>
                 <Col md={4}>
-                    <Card className="mb-4" style={{ height: '420px', margin: '0 auto', backgroundColor: '#f0f0f0' }}>
+                    <Card className="mb-4 cnf-cnf-cnf" style={{ height: '420px', margin: '0 auto', backgroundColor: '#f0f0f0' }}>
                         <Card.Img variant="top" src={book.image} style={{ height: '350px', width: '65%', objectFit: 'cover', marginLeft: 'auto', marginRight: 'auto', marginTop: '-10px' }} />
                     </Card>
 
                 </Col>
                 <Col md={8}>
-                    <Card className="mb-4" style={{ height: "420px", backgroundColor: '#f0f0f0' }}>
+                    <Card className="mb-4 cnf-cnf-cnf" style={{ height: "420px", backgroundColor: '#f0f0f0' }}>
                         <Card.Body>
                             <Card.Title>{book.title}</Card.Title>
                             <Card.Text>{book.description}</Card.Text>

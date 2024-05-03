@@ -1170,3 +1170,13 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 .btn-6 span:hover:after {
   width: 100%;
 }
+
+
+.cnf-cnf-cnf{
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, .12);
+}
+
+
+.ord-ord{
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .12);
+}
