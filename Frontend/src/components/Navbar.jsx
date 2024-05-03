@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
 import LoginForm from './LoginForm';
@@ -40,23 +41,18 @@ export default function Navbar() {
         <>
             {/* navbar start */}
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className='navbar'>
-                <Link className="nav-link" to="/"><img src={Logo} alt="" className='logo'/></Link>
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <div className="container p-2">
+                    <Link className="navbar-brand italic-text animate-charcter-1" to="/">LibraLogic</Link>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/">Home</Link>
-                            </li>
-                            <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/bookproduct">Books</Link>
-                            </li>
-                            <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/contactus">Contact us</Link>
+                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/about">About</Link>
-                            </li>
-                            <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/feedback">Feedback</Link>
                             </li>
                             {(localStorage.getItem("authToken")) ?
                                 <li className="nav-item dropdown mx-2">
@@ -64,43 +60,41 @@ export default function Navbar() {
                                         Dropdown
                                     </Link>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
+                                        <li><Link className="dropdown-item" to="#">Profile</Link></li>
                                         <li><Link className="dropdown-item" to="/books">Store</Link></li>
                                         <li><hr className="dropdown-divider" /></li>
                                         <li><Link className="dropdown-item" to="/order">Order Details</Link></li>
                                     </ul>
                                 </li>
                                 : ""}
-                    </ul>
-                    <div className='search-box'>
-                        <input type='text' placeholder='search'/>
-                        <img src={search_icon_light} alt=""/>
+                        </ul>
+                        <Form.Control
+                            type="text"
+                            placeholder="Search"
+                            className=" mr-sm-4 form-control-control"
+                        />
+                        {(!localStorage.getItem("authToken")) ?
+                            <div className="d-flex">
+
+                                <div className="btn-btn-div">
+                                    <button className="custom-btn btn-3 mx-2" type="button" onClick={handleShowLoginModal}><span>Login</span></button>
+                                </div>
+                                <div className="btn-btn-div">
+                                    <button className="custom-btn btn-3" type="button" onClick={handleShowRegisterModal}><span>Register</span></button>
+                                </div>
+                            </div>
+                            :
+                            <div className='d-flex '>
+                                <div className="btn-btn-div">
+                                    <button className="custom-btn btn-5 mx-2" type="button" onClick={handlelogout}><span>Logout</span></button>
+                                </div>
+                                <div className="btn-btn-div">
+                                    <Link to='/cart'><button className="custom-btn btn-12 " type="button"><span>Click!</span><span>My Cart</span></button></Link>
+                                </div>
+                            </div>
+                        }
                     </div>
-                    {(!localStorage.getItem("authToken")) ?
-                        <div className="d-flex">
-                            <ul>
-                                <li className="btnhover" type="button" onClick={handleShowLoginModal}>
-                                    Sign in<span></span><span></span><span></span><span></span>
-                                </li>
-                                <li className="btnhover" type="button" onClick={handleShowRegisterModal}>
-                                    Sign up<span></span><span></span><span></span><span></span>
-                                </li>
-                            </ul>
-                        </div>
-                        :
-                        <div className='d-flex '>
-                            <ul>
-                                <li className="btnhover" type="button" onClick={handlelogout}>
-                                    Logout<span></span><span></span><span></span><span></span>
-                                </li>
-                                <Link to='/cart'>
-                                <li className="btnhover" type="button">
-                                    My Cart<span></span><span></span><span></span><span></span>
-                                </li>
-                                </Link>
-                            </ul>
-                        </div>
-                    }
+
                 </div>
                 {/* navbar end */}
 
@@ -127,8 +121,8 @@ export default function Navbar() {
                 </Modal>
             </nav>
             <div id="scroll-container">
-                <div id="scroll-text">  
-                        <h2 className='text-text-text'>This Summer Avail  Many Offers Here 50% Off in Books Renting and Study Online Free</h2>
+                <div id="scroll-text">
+                    <h2 className='text-text-text'>This Summer Avail  Many Offers Here 50% Off in Books Renting and Study Online Free</h2>
                 </div>
             </div>
         </>
