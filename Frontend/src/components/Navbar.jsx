@@ -5,8 +5,6 @@ import { Modal, Button } from 'react-bootstrap';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import './Navbar.css';
-import Logo from '../assets/navbar/logo.png';
-import search_icon_light from '../assets/navbar/search-w.png';
 
 export default function Navbar() {
     const [showLoginModal, setShowLoginModal] = useState(false);
