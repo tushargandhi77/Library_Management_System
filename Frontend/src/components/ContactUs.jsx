@@ -18,7 +18,7 @@ export default function ContactUs() {
             <p className="text-white" style={{ marginLeft: '-272px' }}>Department</p>
             <input type="text" className="bg-light rounded-2 mb-2" style={inputStyle} />
             <p className="text-white" style={{ marginLeft: '-290px' }}>Message</p>
-            <textarea name="Message" id="" cols="30" rows="1" className="bg-light rounded-2 mb-2" style={inputStyle}></textarea>
+            <textarea name="Message" id="" cols="30" rows="2" className="bg-light rounded-2 mb-2" style={inputStyle}></textarea>
             <button className="mt-2 p-2 rounded-2 text-white bg-primary mb-4" style={buttonStyle}>Send Message</button>
         </div>
     );

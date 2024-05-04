@@ -10,24 +10,22 @@ function CarouselFade() {
       <Carousel.Item className='let-let'>
         <ExampleCarouselImage imageUrl={L1} altText="First slide" />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Vast Collection of Resources</h3>
+          <p>A library should have a wide range of books, journals, and other materials to cater to the diverse needs of its users.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className='let-let'>
       <ExampleCarouselImage imageUrl={L2} altText="First slide" />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Comfortable Study Environment</h3>
+          <p>Peaceful and conducive environment for study and research is crucial. This includes comfortable seating, adequate lighting, and minimal noise.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className='let-let'>
       <ExampleCarouselImage imageUrl={L3} altText="First slide" />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3>Collaborative Spaces</h3>
+          <p>Spaces that encourage collaboration and group work, such as group study rooms or collaborative workstations.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
