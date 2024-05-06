@@ -48,7 +48,7 @@ export default function Orders() {
       <div className="row d-flex justify-content-center mt-4">
         {orders.slice().reverse().map((order) => (
           <Col key={order._id} md={6}>
-            <Card style={{ width: '30rem', margin: '0 auto', backgroundColor: '#f0f0f0' }} className="mb-5 mt-2">
+            <Card style={{ width: '30rem', margin: '0 auto', backgroundColor: '#f0f0f0' }} className="mb-5 mt-2 ord-ord">
               <Card.Img
                 variant="top"
                 src={order.image}
