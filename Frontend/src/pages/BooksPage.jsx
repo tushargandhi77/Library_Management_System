@@ -70,10 +70,10 @@ export default function BooksPage() {
               <Card.Img
                 variant="top"
                 src={book.image}
-                style={{ height: '350px', width: '85%', objectFit: 'cover', marginLeft: 'auto', marginRight: 'auto' }} // Set fixed height and cover the image
+                style={{ height: '350px', width: '85%', objectFit: 'cover', marginLeft: 'auto', marginRight: 'auto', borderRadius: '3px', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' }} // Set fixed height and cover the image
               />
               <Card.Body>
-                <Card.Title className="text-center" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '200px' }}>
+                <Card.Title style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '200px' }}>
                   {book.title}
                 </Card.Title>
                 <div style={{ overflowY: 'auto', height: '100px', marginBottom: '15px', marginTop: '5px', WebkitOverflowScrolling: 'touch', backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
@@ -106,22 +106,25 @@ export default function BooksPage() {
                 <Card.Text style={{ fontWeight: 'bold' }}>Price: {book.price}</Card.Text>
                 <Card.Text>Stock: {book.stock}</Card.Text>
                 <Col className="justify-content-center">
-                  <Button variant="outline-primary" onClick={() => handleRentNow(book.bookId)} style={{width:"50%"}}>Rent Now</Button>
+                  {/* <Button variant="outline-primary" onClick={() => handleRentNow(book.bookId)} style={{ width: "50%" }}>Rent Now</Button> */}
+                  <div className="btn-btn-div">
+                    <button className="custom-btn btn-3 mx-2 w-50" type="button" onClick={() => handleRentNow(book.bookId)}><span>Confirm Order</span></button>
+                  </div>
                   {/* <Button variant="outline-success" onClick={() => handleaddtocart(book.bookId, book.title, book.author, book.publisher, book.description, book.price, book.stock, book.image)}>Add to Cart</Button> */}
                   <Button
                     variant="outline-success"
                     onClick={() => handleaddtocart(book.bookId, book.title, book.author, book.publisher, book.description, book.price, book.stock, book.image)}
-                    style={{ position: 'relative', height:'40px',borderColor: 'transparent',marginLeft:'220px',backgroundColor: 'transparent',width:"50%",marginTop:'-78px'}}
+                    style={{ position: 'relative', height: '40px', borderColor: 'transparent', marginLeft: '220px', backgroundColor: 'transparent', width: "50%", marginTop: '-78px' }}
                   >
                     <img
                       src={cartpng1}
                       alt="Add to Cart"
-                      style={{ width: '50px', height: '50px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}
+                      style={{ width: '50px', height: '50px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
                     />
                   </Button>
-                  
+
                 </Col>
-                
+
               </Card.Body>
             </Card>
           </Col>

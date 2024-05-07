@@ -14,6 +14,8 @@ import Error from './pages/Failed';
 import Placed from './pages/PlacedOrder'
 import Order from './pages/Orders'
 import Cart from './pages/Cart'
+import Library from './pages/Library'
+import Seat from './pages/SeatBook'
 import React from 'react'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
@@ -35,6 +37,8 @@ function App(){
         {path:"/placed",element: <Placed/>},
         {path:'/order',element: <Order/>},
         {path:"/cart",element: <Cart/>},
+        {path:"/library",element: <Library/>},
+        {path:'/seat/:id',element:<Seat/>}
       ]
     }
   ])

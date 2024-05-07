@@ -124,7 +124,10 @@ export default function OrderConfirmationPage() {
                                     />
                                 </div>
                             </div>
-                            <Button variant="outline-primary mt-2" onClick={() => handleConfirmOrder()}>Confirm Order</Button>
+                            {/* <Button variant="outline-primary mt-2" onClick={() => handleConfirmOrder()}>Confirm Order</Button> */}
+                            <div className="btn-btn-div mt-3">
+                                <button className="custom-btn btn-13 mx-2 w-50" type="button" onClick={() => handleConfirmOrder()}><span>Confirm Order</span></button>
+                            </div>
                         </Card.Body>
                     </Card>
                 </Col>

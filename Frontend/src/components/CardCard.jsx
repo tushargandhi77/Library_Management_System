@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import studyImage from '../assets/third images/study.jpg';
 import ebookImage from '../assets/third images/ebook.jpg';
 import bookImage from '../assets/third images/book.jpg';
@@ -15,7 +16,7 @@ const BoxWrapper = () => {
                         <h3 className="card-main-title">STUDY</h3>
                     </div>
                     <p className="card-content">Our library offers a peaceful study environment with vast resources, expert assistance, and comfortable facilities, enhancing academic pursuits effectively.</p>
-                    <a href="#" className="read-more-btn">Read More</a>
+                    <Link to="/library" className="read-more-btn">Read More</Link>
                 </figcaption>
                 <span className="after"></span>
             </figure>

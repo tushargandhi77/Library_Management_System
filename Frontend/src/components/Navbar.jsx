@@ -93,6 +93,7 @@ export default function Navbar() {
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><Link className="dropdown-item" to="https://tushargandhi77-book-recommender-system.hf.space/">Recommend</Link></li>
                                         <li><Link className="dropdown-item" to="/books">Store</Link></li>
+                                        <li><Link className="dropdown-item" to="/library">Library</Link></li>
                                         <li><hr className="dropdown-divider" /></li>
                                         <li><Link className="dropdown-item" to="/order">Order Details</Link></li>
                                     </ul>
