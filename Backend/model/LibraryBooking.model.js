@@ -5,6 +5,10 @@ const BookLibraryDetailsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    LibId:{
+        type: String,
+        required: true
+    },
     name:{
         type: String,
         required: true
@@ -26,12 +30,16 @@ const BookLibraryDetailsSchema = new mongoose.Schema({
         required: true
     },
     startTime: {
-        type: Date, // Change to Date type
+        type: Date, 
         required: true
     },
     endTime: {
-        type: Date, // Change to Date type
+        type: Date, 
         required: true
+    },
+    expired: {
+        type: Boolean,
+        default: false
     }
 })
 

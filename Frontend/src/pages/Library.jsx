@@ -8,16 +8,13 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Library() {
     const [LibraryDetails, SetlibraryDetails] = useState([])
-    const [loggedIn, setLoggedIn] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         const authToken = localStorage.getItem('authToken');
-        if (authToken) {
-          setLoggedIn(true);
-        } else {
-          navigate('/');
-        }
+        if (!authToken) {
+            navigate('/')
+        } 
       }, []);
 
     useEffect(() => {

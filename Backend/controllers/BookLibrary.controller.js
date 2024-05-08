@@ -24,8 +24,25 @@ const getDetails = async(req,res)=>{
         res.status(500).json(err)
     }
 }
+const updateExpire = async(req,res)=>{
+    try {
+        const updateexpire = await BookLibrary.findByIdAndUpdate(
+            req.params.id,
+            {expired: req.body.expired},
+            {new:true}
+        )
+        if(!updateexpire){
+            return res.status(404).json({ message: "No Details Found" });
+        }
+        res.json(updateexpire)
+    } catch (error) {
+        console.error('Error updating booking:', error);
+        res.status(500).json({ error: 'Internal why error' });
+    }
+}
 
 module.exports = {
     addDetails,
-    getDetails
+    getDetails,
+    updateExpire
 }

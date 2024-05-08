@@ -38,9 +38,9 @@ export default function SeatBook() {
             const dateValue = date;
             const startTimeFull = `${date}T${startTime}:00`;
             const endTimeFull = `${date}T${endTime}:00`;
-            console.log(email)
             const Library = {
                 email: email,
+                LibId: id,
                 name: library.name,
                 location: library.location,
                 image: library.image,
@@ -49,7 +49,6 @@ export default function SeatBook() {
                 startTime: startTimeFull,
                 endTime: endTimeFull
             };
-            console.log(Library)
             const response = await fetch('http://localhost:3000/booklibrary/', {
                 method: 'POST',
                 headers: {
@@ -59,11 +58,37 @@ export default function SeatBook() {
             })
 
             if (response.ok && response.status === 200) {
-                navigate(`/placed`);
 
-            } else {
+                const availablityResponse = await fetch(`http://localhost:3000/library/${id}`)
+                const availabilityData = await availablityResponse.json();
+                const currentavailable = availabilityData.available;
+
+                if (currentavailable < seatValue){
+                    alert('Please select less seat value')
+                    return;
+                }
+
+                const updatedAvailability = currentavailable - seatValue;
+
+                const updateResponse = await fetch(`http://localhost:3000/library/${id}`,{
+                    method: 'POST',
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        available: updatedAvailability
+                    })
+                });
+                if (updateResponse.ok && updateResponse.status === 200) {
+                    navigate(`/placed`);
+                } else {
+                    console.error('Failed to update availability:', updateResponse.statusText);
+                    navigate(`/error`);
+                }
+            }
+            else {
                 console.error('Failed to book Seat:', response.statusText);
-                navigate(`/error`)
+                navigate(`/error`);
             }
 
         }
@@ -79,7 +104,7 @@ export default function SeatBook() {
 
     return (
         <div className='container'>
-            <h1 className='mt-4 mb-4'>Confirm Booking</h1>
+            <h1 className='mt-4 mb-4 text-bold'>Confirm Booking</h1>
 
             <Row>
                 <Col md={4}>
