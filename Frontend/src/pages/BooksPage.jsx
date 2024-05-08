@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import cartpng from '../assets/shopping-cart.png'
 import cartpng1 from '../assets/add-to-cart.png'
 import rent from '../assets/Rent2.jpg'
+import { toast } from 'react-toastify';
+
 export default function BooksPage() {
   const [books, setBooks] = useState([])
   const [loggedIn, setLoggedIn] = useState(false);
@@ -53,7 +55,7 @@ export default function BooksPage() {
         body: JSON.stringify(cart)
       });
       if (response.ok && response.status === 200) {
-        alert('Add to cart Succesfully')
+        toast.success('Add to cart Succesfully')
       }
     }
     catch (error) {

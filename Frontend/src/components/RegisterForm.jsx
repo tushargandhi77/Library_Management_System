@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function RegisterForm({onSuccess}) {
 
@@ -22,10 +23,10 @@ export default function RegisterForm({onSuccess}) {
         const json = await response.json()
         console.log(json.message);
         if(json.message!=="success") {
-            alert("Registration failed with error: " + json.error);
+            toast.error("Registration failed with error: " + json.error);
             
         } else {
-            alert("Registration successful");
+            toast.success("Registration successful");
             // localStorage.setItem("userEmail", credentials.email);
             // localStorage.setItem("authToken", json.authToken);
             onSuccess()

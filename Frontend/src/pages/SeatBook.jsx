@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { Card, Button, Col, Row, Form } from 'react-bootstrap';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
+
 export default function SeatBook() {
     const { id } = useParams()
     const [library, Setlibrary] = useState(null)
@@ -64,7 +67,7 @@ export default function SeatBook() {
                 const currentavailable = availabilityData.available;
 
                 if (currentavailable < seatValue){
-                    alert('Please select less seat value')
+                    toast.error('Please select less seat value')
                     return;
                 }
 
@@ -80,14 +83,15 @@ export default function SeatBook() {
                     })
                 });
                 if (updateResponse.ok && updateResponse.status === 200) {
+                    toast.success("Booking seat confirmed")
                     navigate(`/placed`);
                 } else {
-                    console.error('Failed to update availability:', updateResponse.statusText);
+                    toast.error('Failed to update availability:', updateResponse.statusText);
                     navigate(`/error`);
                 }
             }
             else {
-                console.error('Failed to book Seat:', response.statusText);
+                toast.error('Failed to book Seat:', response.statusText);
                 navigate(`/error`);
             }
 

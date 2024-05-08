@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Button, Col, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
+
 export default function OrderConfirmationPage() {
     const { bookId } = useParams()
     const [book, setBook] = useState(null)
@@ -63,11 +65,11 @@ export default function OrderConfirmationPage() {
                 body: JSON.stringify(orderData)
             });
             if (response.ok && response.status === 200) {
-                console.log('Order placed successfully!');
+                toast.success('Order placed successfully!');
                 navigate(`/placed`);
 
             } else {
-                console.error('Failed to place order:', response.statusText);
+                toast.error('Failed to place order:', response.statusText);
                 navigate(`/error`)
             }
         }

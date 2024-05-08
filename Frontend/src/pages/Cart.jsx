@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Cart() {
   const [books, setBooks] = useState([]);
@@ -47,7 +48,7 @@ export default function Cart() {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        alert('Item deleted successfully!');
+        toast.info('Item deleted successfully!');
         window.location.reload();
       })
       .catch(error => {
