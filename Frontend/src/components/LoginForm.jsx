@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function LoginForm({ handleCloseLoginModal }) {
     const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -19,9 +20,9 @@ export default function LoginForm({ handleCloseLoginModal }) {
         const json = await response.json();
 
         if (!json.success) {
-            alert("Enter valid credentials");
+            toast.error("Enter valid credentials");
         } else {
-            alert("Login successful");
+            toast.success("Login successful");
             localStorage.setItem("userEmail", credentials.email);
             localStorage.setItem("authToken", json.authToken);
             handleCloseLoginModal();
