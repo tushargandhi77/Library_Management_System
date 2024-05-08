@@ -85,7 +85,7 @@ export default function SeatBook() {
                 });
                 if (updateResponse.ok && updateResponse.status === 200) {
                     toast.success("Booking seat confirmed")
-                    navigate(`/placed`);
+                    navigate(`/seatconfirm`);
                 } else {
                     toast.error('Failed to update availability:', updateResponse.statusText);
                     navigate(`/error`);

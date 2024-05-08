@@ -263,7 +263,7 @@ body::-webkit-scrollbar {
   margin-right: auto;
   width: 350px;
   padding: 0px;
-  box-shadow: 2px 2px 10px black;
+  box-shadow: 2px 2px 10px rgb(2, 2, 2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   /* Smooth transition for both transform and box-shadow */
 }
@@ -280,7 +280,7 @@ body::-webkit-scrollbar {
   margin-left: auto;
   margin-right: auto;
   width: 350px;
-  box-shadow: 2px 2px 10px black;
+  box-shadow: 2px 2px 10px rgb(232, 137, 205);
   transition: transform 0.5s ease, box-shadow 0.3s ease;
   /* Smooth transition for both transform and box-shadow */
 }
@@ -288,7 +288,7 @@ body::-webkit-scrollbar {
 .card-card:hover {
   transform: translateY(-10px);
   /* Scale the card slightly and rotate it on hover */
-  box-shadow: 5px 5px 20px black;
+  box-shadow: 5px 5px 20px rgb(232, 137, 205);
   /* Adjust the box shadow */
 }
 
@@ -1011,6 +1011,37 @@ background: linear-gradient(0deg, rgba(2,126,251,1) 0%,  rgba(0,3,255,1)100%);
   -webkit-transform: scale(1);
   transform: scale(1);
 }
+.btn-14 {
+  background: rgb(255,151,0);
+  border: none;
+  z-index: 1;
+}
+.btn-14:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+  background-color: #eaf818;
+  background-image: linear-gradient(315deg, #eaf818 0%, #f6fc9c 74%);
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5);
+  transition: all 0.3s ease;
+}
+.btn-14:hover {
+  color: #000;
+}
+.btn-14:hover:after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+.btn-14:active {
+  top: 2px;
+}
+
 
 .btn-11 {
   border: none;
@@ -1269,6 +1300,7 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 
 .expired-card {
   filter: grayscale(100%);
+  background-color: rgb(235, 233, 233) !important;
 }
 
 
@@ -1294,4 +1326,22 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
   color: white; /* Change the color of the caption text if needed */
   padding: 20px;
   text-align: center;
+}
+
+.placed-placed-emoji {
+  height: 400px;
+  width: 500px;
+  animation: sizeAndShadowChange 2s infinite alternate ease-in-out;
+  filter: drop-shadow(20px 20px 10px rgb(239, 210, 61));
+}
+
+@keyframes sizeAndShadowChange {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(20px 20px 10px rgb(239, 210, 61));
+  }
+  100% {
+    transform: scale(1.2);
+    filter: drop-shadow(30px 30px 15px rgb(239, 210, 61));
+  }
 }
