@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
   export default function ContactUs(){
     const inputStyle = { width: '48%' };
@@ -16,6 +17,7 @@ import emailjs from '@emailjs/browser';
             })
         .then(
             () => {
+            toast.success('Your message has been sent successfully!');
             console.log('SUCCESS!');
             },
             (error) => {

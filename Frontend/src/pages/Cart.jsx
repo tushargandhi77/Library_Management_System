@@ -10,6 +10,7 @@ export default function Cart() {
   useEffect(() => {
     const authToken = localStorage.getItem('authToken')
     if (!authToken) {
+      toast.warning('Login First')
       navigate('/')
     }
   }, [])

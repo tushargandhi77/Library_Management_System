@@ -40,7 +40,7 @@ const BoxWrapper = () => {
                         <h3 className="card-main-title">BORROW</h3>
                     </div>
                     <p className="card-content">Customers can easily borrow any book from our library by online or offline , selecting their desired book, presenting their library card, and checking out the book with the assistance of our staff.</p>
-                    <a href="#" className="read-more-btn">Read More</a>
+                    <Link to="/books" className="read-more-btn">Read More</Link>
                 </figcaption>
                 <span className="after"></span>
             </figure>

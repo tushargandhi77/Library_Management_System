@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import Barcode from 'react-barcode';
 import { useNavigate } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 export default function Orders() {
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();
@@ -10,6 +10,7 @@ export default function Orders() {
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
+        toast.warning("Login First")
         navigate('/');
     }
   }, []);

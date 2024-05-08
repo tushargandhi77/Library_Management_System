@@ -8,14 +8,12 @@ import { toast } from 'react-toastify';
 
 export default function BooksPage() {
   const [books, setBooks] = useState([])
-  const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
-    if (authToken) {
-      setLoggedIn(true);
-    } else {
+    if (!authToken) {
+      toast.warning('Login First')
       navigate('/');
     }
   }, []);
