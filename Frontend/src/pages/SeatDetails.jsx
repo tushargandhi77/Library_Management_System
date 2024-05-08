@@ -62,13 +62,13 @@ export default function SeatDetails() {
             <Row className='d-flex justify-content-center'>
                 {library.slice().reverse().map(libraryItem => (
                     <Col key={libraryItem._id} md={4} className='mt-5'>
-                        <Card className={libraryItem.expired ? 'expired-card' : ''} style={{ width: '26rem', margin: '0 auto', marginBottom: '20px' }}>
+                        <Card className={libraryItem.expired ? 'expired-card' : ''} style={{ width: '26rem', margin: '0 auto', marginBottom: '20px', boxShadow: '0 6px 20px 0 rgba(0, 0, 0, .12)' }}>
                             <Card.Img variant="top" src={libraryItem.image} style={{ height: '350px', width: '350px', objectFit: 'cover', marginLeft: 'auto', marginRight: 'auto', borderRadius: '100%', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' }} />
                             <Card.Body className='mt-3'>
                                 <Card.Title style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{libraryItem.name}</Card.Title>
                                 <Card.Text style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>Location: {libraryItem.location}</Card.Text>
                                 <Card.Text>Booked Seats: {libraryItem.seat}</Card.Text>
-                                <Card.Text style={{ fontWeight: 'bold' }}>Date: {new Date(libraryItem.date).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })}</Card.Text>
+                                <Card.Text style={{ fontWeight: 'bold' }}>Date: {new Date(libraryItem.date).toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}</Card.Text>
                                 <Card.Text>Start Time: <span style={{ color: 'green', fontWeight: 'bold' }}><i>{new Date(libraryItem.startTime).toLocaleTimeString()}</i></span></Card.Text>
                                 <Card.Text>End Time: <span style={{ color: 'red', fontWeight: 'bold' }}><i>{new Date(libraryItem.endTime).toLocaleTimeString()}</i></span></Card.Text>
                             </Card.Body>

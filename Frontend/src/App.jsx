@@ -16,6 +16,7 @@ import Cart from './pages/Cart'
 import Library from './pages/Library'
 import Seat from './pages/SeatBook'
 import Seatdetails from './pages/SeatDetails'
+import Seatconfirm from './pages/PlacedSeat'
 
 import React from 'react'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
@@ -39,7 +40,8 @@ function App(){
         {path:"/cart",element: <Cart/>},
         {path:"/library",element: <Library/>},
         {path:'/seat/:id',element:<Seat/>},
-        {path:'/seatdetails',element:<Seatdetails/>}
+        {path:'/seatdetails',element:<Seatdetails/>},
+        {path:'/seatconfirm',element: <Seatconfirm/>},
       ]
     }
   ])
