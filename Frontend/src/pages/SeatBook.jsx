@@ -8,8 +8,8 @@ export default function SeatBook() {
     const [library, Setlibrary] = useState(null)
     const [seat, Setseat] = useState(1)
     const [date, setDate] = useState(new Date())
-    const [startTime, setstarttime] = useState(null)
-    const [endTime, setendtime] = useState(null)
+    const [startTime, setstarttime] = useState(new Date())
+    const [endTime, setendtime] = useState(new Date())
 
     const navigate = useNavigate()
     useEffect(() => {
@@ -30,13 +30,81 @@ export default function SeatBook() {
             .catch(error => console.log('error fetching library details', error))
     }, [id])
 
+
+    const handlelibrary = async () => {
+        try {
+            const email = localStorage.getItem('userEmail');
+            const seatValue = seat;
+            const dateValue = date;
+            const startTimeFull = `${date}T${startTime}:00`;
+            const endTimeFull = `${date}T${endTime}:00`;
+            const Library = {
+                email: email,
+                LibId: id,
+                name: library.name,
+                location: library.location,
+                image: library.image,
+                seat: seatValue,
+                date: dateValue,
+                startTime: startTimeFull,
+                endTime: endTimeFull
+            };
+            const response = await fetch('http://localhost:3000/booklibrary/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(Library)
+            })
+
+            if (response.ok && response.status === 200) {
+
+                const availablityResponse = await fetch(`http://localhost:3000/library/${id}`)
+                const availabilityData = await availablityResponse.json();
+                const currentavailable = availabilityData.available;
+
+                if (currentavailable < seatValue){
+                    alert('Please select less seat value')
+                    return;
+                }
+
+                const updatedAvailability = currentavailable - seatValue;
+
+                const updateResponse = await fetch(`http://localhost:3000/library/${id}`,{
+                    method: 'POST',
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        available: updatedAvailability
+                    })
+                });
+                if (updateResponse.ok && updateResponse.status === 200) {
+                    navigate(`/placed`);
+                } else {
+                    console.error('Failed to update availability:', updateResponse.statusText);
+                    navigate(`/error`);
+                }
+            }
+            else {
+                console.error('Failed to book Seat:', response.statusText);
+                navigate(`/error`);
+            }
+
+        }
+        catch (error) {
+            console.error('Error placing order:', error);
+        }
+    }
+
+
     if (!library) {
         return <div>Loading...</div>;
     }
 
     return (
         <div className='container'>
-            <h1 className='mt-4 mb-4'>Confirm Booking</h1>
+            <h1 className='mt-4 mb-4 text-bold'>Confirm Booking</h1>
 
             <Row>
                 <Col md={4}>
@@ -72,7 +140,7 @@ export default function SeatBook() {
                             </div>
 
                             <div className="btn-btn-div mt-3">
-                                <button className="custom-btn btn-13 mx-2 w-50" type="button"><span>Confirm</span></button>
+                                <button className="custom-btn btn-13 mx-2 w-50" type="button" onClick={() => handlelibrary()}><span>Confirm</span></button>
                             </div>
                         </Card.Body>
                     </Card>
