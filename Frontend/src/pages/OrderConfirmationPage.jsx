@@ -16,6 +16,7 @@ export default function OrderConfirmationPage() {
 
         const authToken = localStorage.getItem('authToken');
         if (!authToken) {
+            toast.warning('Login first')
             navigate('/');
         }
     }, []);

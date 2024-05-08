@@ -6,6 +6,7 @@ import CardProduct from '../components/CardProduct'
 import CarousalThree from '../components/CarousalThree'
 import ContactUs from '../components/ContactUs'
 import CardCard from '../components/CardCard'
+import CoverFlow from '../components/CoverFlow'
 export default function Main() {
   return (
     <>
@@ -28,6 +29,12 @@ export default function Main() {
       </div>
       {/* <CardSlier /> */}
       <CardCard />
+      <div className="ttttx">
+        <center>
+          <h3 className="ttx" >Our Libraries</h3>
+        </center>
+      </div>
+      <CoverFlow />
       <div className="ttttx">
         <center>
           <h3 className="ttx">Here Our Special Features</h3>

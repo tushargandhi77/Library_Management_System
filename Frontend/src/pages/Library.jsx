@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Library() {
     const [LibraryDetails, SetlibraryDetails] = useState([])
@@ -13,6 +14,7 @@ export default function Library() {
     useEffect(() => {
         const authToken = localStorage.getItem('authToken');
         if (!authToken) {
+            toast.warning("Login First")
             navigate('/')
         } 
       }, []);

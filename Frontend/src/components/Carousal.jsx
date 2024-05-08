@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from './ExampleCarouselImage';
-import L1 from '../assets/first images/slide1.jpg';
+import L1 from '../assets/first images/slide 1.jpg';
 import L2 from '../assets/first images/slide2.jpg';
 import L3 from '../assets/first images/slide3.jpg';
 

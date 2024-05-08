@@ -5,7 +5,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Main from './pages/Main';
 import About from './pages/About';
-import Bookproduct from './pages/Books.jsx';
 import Contactus from './pages/Contactus.jsx';
 import Feedback from './pages/Feedback.jsx';
 import Books from './pages/BooksPage'
@@ -30,7 +29,6 @@ function App(){
       children:[
         {path: "/",element: <Main/>},
         {path: "/about",element: <About/>},
-        {path: "/bookproduct",element: <Bookproduct/>},
         {path: "/contactus",element: <Contactus/>},
         {path: "/feedback" ,element: <Feedback/>},
         {path: "/books",element: <Books/>},

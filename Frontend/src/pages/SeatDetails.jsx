@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Card, Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { toast } from 'react-toastify';
 export default function SeatDetails() {
     const [library, setLibrary] = useState([])
     const email = localStorage.getItem('userEmail')
@@ -11,6 +11,7 @@ export default function SeatDetails() {
     useEffect(() => {
         const authToken = localStorage.getItem('authToken');
         if (!authToken) {
+            toast.warning("Login first")
             navigate('/')
         }
     }, [])

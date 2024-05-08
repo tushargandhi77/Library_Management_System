@@ -7,7 +7,7 @@ import C3 from '../assets/contact3.jpg';
 function UncontrolledExample() {
   return (
     <Carousel controls={false}  indicators={false}>
-      <Carousel.Item className='let-let'>
+      <Carousel.Item className='let-let-let-let-let'>
         <ExampleCarouselImage imageUrl={C1} altText="First slide"/>
         <Carousel.Caption>
           {/* <h3>First slide label</h3>
