@@ -34,7 +34,7 @@ import { toast } from 'react-toastify';
                  <p className="text-white" style={labelStyle} aria-required>Mobile</p>
                  <input type="text" rows="2" className="bg-light rounded-2 mb-2" style={inputStyle} />
                  <p className="text-white" style={labelStyle} aria-required>Email</p>
-                 <input type="text" rows="2" className="bg-light rounded-2 mb-2" style={inputStyle} />
+                 <input type="text" rows="2" name="from_email" className="bg-light rounded-2 mb-2" style={inputStyle} />
                  <p className="text-white" style={{ marginLeft: '-290px' }} aria-required>Message</p>
                  <textarea name="message" id="" cols="30" rows="4" className="bg-light rounded-2 mb-2" style={inputStyle}></textarea>
                  <button className="mt-2 p-2 rounded-2 text-white bg-primary mb-4" style={buttonStyle} type="submit" value="Send">Send Message</button>
