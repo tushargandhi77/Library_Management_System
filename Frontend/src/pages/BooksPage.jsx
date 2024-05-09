@@ -5,9 +5,11 @@ import cartpng from '../assets/shopping-cart.png'
 import cartpng1 from '../assets/add-to-cart.png'
 import rent from '../assets/Rent2.jpg'
 import { toast } from 'react-toastify';
+import Loader from '../pages/Loader'
 
 export default function BooksPage() {
   const [books, setBooks] = useState([])
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +24,10 @@ export default function BooksPage() {
     fetch('http://localhost:3000/books/')
       .then(response => response.json())
       .then(data => {
-        setBooks(data);
+        setTimeout(() => {
+          setBooks(data);
+          setIsLoading(false); // Set loading state to false after fetching data
+        }, 1500);
       })
       .catch(error => console.log('error fetching data', error))
   }, [])
@@ -63,6 +68,9 @@ export default function BooksPage() {
   }
   return (
     <>
+    {isLoading ? ( 
+        <Loader />
+      ) : (
       <Row className='d-flex justify-content-center'>
         {books.map(book => (
           <Col key={book.bookId} className='mt-5' md={4}>
@@ -130,6 +138,7 @@ export default function BooksPage() {
           </Col>
         ))}
       </Row>
+      )}
     </>
   )
 }

@@ -6,9 +6,11 @@ import Col from 'react-bootstrap/Col'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Loader from '../pages/Loader'
 
 export default function Library() {
     const [LibraryDetails, SetlibraryDetails] = useState([])
+    const [isLoading, setIsLoading] = useState(true); 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,7 +24,10 @@ export default function Library() {
     useEffect(() => {
         axios.get('http://localhost:3000/library/')
             .then(response => {
-                SetlibraryDetails(response.data)
+                setTimeout(() => { 
+                    SetlibraryDetails(response.data);
+                    setIsLoading(false); 
+                  }, 1500);
             })
             .catch(error => {
                 console.log(error)
@@ -35,6 +40,9 @@ export default function Library() {
 
     return (
         <>
+        {isLoading ? ( // Render loader if loading state is true
+        <Loader />
+      ) : (
             <Row className='d-flex justify-content-center'>
                 {LibraryDetails.slice().reverse().map(library => (
                     <Col key={library._id} md={4} className='mt-5'>
@@ -52,6 +60,7 @@ export default function Library() {
                     </Col>
                 ))}
             </Row>
+      )}
         </>
     )
 }

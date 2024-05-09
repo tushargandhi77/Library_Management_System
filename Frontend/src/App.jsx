@@ -17,6 +17,7 @@ import Library from './pages/Library'
 import Seat from './pages/SeatBook'
 import Seatdetails from './pages/SeatDetails'
 import Seatconfirm from './pages/PlacedSeat'
+import Loader from './pages/Loader'
 
 import React from 'react'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
@@ -42,6 +43,7 @@ function App(){
         {path:'/seat/:id',element:<Seat/>},
         {path:'/seatdetails',element:<Seatdetails/>},
         {path:'/seatconfirm',element: <Seatconfirm/>},
+        {path:'loader',element:<Loader/>},
       ]
     }
   ])
