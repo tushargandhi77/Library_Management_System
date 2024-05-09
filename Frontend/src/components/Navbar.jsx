@@ -87,9 +87,7 @@ export default function Navbar() {
                             </li>
                             {(localStorage.getItem("authToken")) ?
                                 <li className="nav-item dropdown mx-2">
-                                    <Link className="nav-link dropdown-toggle active" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Dropdown
-                                    </Link>
+                                    <Link className="nav-link dropdown-toggle active" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Details</Link>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><Link className="dropdown-item" to="https://tushargandhi77-book-recommender-system.hf.space/">Recommend</Link></li>
                                         <li><Link className="dropdown-item" to="/books">Store</Link></li>
