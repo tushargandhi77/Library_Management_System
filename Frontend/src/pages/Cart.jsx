@@ -40,7 +40,7 @@ export default function Cart() {
   const hangleprocced = (bookId) => {
     navigate(`/books/${bookId}`)
   }
-  
+
   const handledelete = (bookId) => {
     fetch(`http://localhost:3000/cart/bookid/${bookId}`, {
       method: 'DELETE'
@@ -107,8 +107,14 @@ export default function Cart() {
                   </div>
                   <Card.Text style={{ fontWeight: 'bold' }}>Price: {book.price}</Card.Text>
                   <Row className="justify-content-center">
-                    <Button variant="outline-success" onClick={() => hangleprocced(book.bookId)}>Proceed</Button>
-                    <Button variant="outline-danger" className='mt-3' onClick={() => handledelete(book.bookId)}>Delete from cart</Button>
+                    {/* <Button variant="outline-success" onClick={() => hangleprocced(book.bookId)}>Proceed</Button> */}
+                    <div className="btn-btn-div">
+                      <button className="custom-btn btn-14 mx-2 w-100" type="button" onClick={() => hangleprocced(book.bookId)}><span>Proccedd</span></button>
+                    </div>
+                    <div className="btn-btn-div">
+                      <button className="custom-btn btn-5 mx-2 w-100 mt-3" type="button" onClick={() => handledelete(book.bookId)}><span>Delete from cart</span></button>
+                    </div>
+                    {/* <Button variant="outline-danger" className='mt-3' onClick={() => handledelete(book.bookId)}>Delete from cart</Button> */}
                   </Row>
                 </Card.Body>
               </Card>
