@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Card, Button, Col, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import Loader from '../pages/Loader'
 
 export default function OrderConfirmationPage() {
     const { bookId } = useParams()
@@ -79,12 +80,12 @@ export default function OrderConfirmationPage() {
         }
     }
     if (!book) {
-        return <div>Loading...</div>;
+        return <Loader/>
     }
 
     return (
 
-        <div className="container mt-5">
+        <div className="container mt-5 mx-auto">
             <h1 className="mb-4">Confirm Order</h1>
             <Row>
                 <Col md={4}>

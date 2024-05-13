@@ -6,8 +6,17 @@ import I3 from '../assets/fourth images/img3.jpg'
 import I4 from '../assets/fourth images/img4.jpg'
 import I5 from '../assets/fourth images/img5.jpg'
 import I6 from '../assets/fourth images/img6.jpg'
+import { useNavigate } from 'react-router-dom';
 
 const CardProduct = () => {
+  const navigate = new useNavigate();
+  const handlebook = () => {
+    navigate('/library')
+  }
+  const handlerent = () => {
+    navigate('/books')
+  }
+
   return (
     <Carousel indicators={false}>
       <Carousel.Item>
@@ -18,10 +27,10 @@ const CardProduct = () => {
               <Card.Body>
                 <Card.Title className="text-center mt-2 fw-bold">Simple UI</Card.Title>
                 <div className="btn-btn-div mt-2">
-                    <button className="custom-btn btn-11 mx-2 w-100" type="button" ><span>Book Seat</span></button>
+                    <button className="custom-btn btn-11 mx-2 w-100" type="button" onClick={handlebook}><span>Book Seat</span></button>
                 </div>
                 <div className="btn-btn-div mt-3">
-                    <button className="custom-btn btn-10 mx-2 w-100" type="button" ><span>Rent Now</span></button>
+                    <button className="custom-btn btn-10 mx-2 w-100" type="button" onClick={handlerent}><span>Rent Now</span></button>
                 </div>
               </Card.Body>
             </Card>
@@ -32,10 +41,10 @@ const CardProduct = () => {
               <Card.Body>
                 <Card.Title className="text-center fw-bold mt-2">Easy Booking</Card.Title>
                 <div className="btn-btn-div mt-2">
-                    <button className="custom-btn btn-11 mx-2 w-100" type="button" ><span>Book Seat</span></button>
+                    <button className="custom-btn btn-11 mx-2 w-100" type="button" onClick={handlebook}><span>Book Seat</span></button>
                 </div>
                 <div className="btn-btn-div mt-3">
-                    <button className="custom-btn btn-10 mx-2 w-100" type="button" ><span>Rent Now</span></button>
+                    <button className="custom-btn btn-10 mx-2 w-100" type="button" onClick={handlerent}><span>Rent Now</span></button>
                 </div>
               </Card.Body>
             </Card>
@@ -46,10 +55,10 @@ const CardProduct = () => {
               <Card.Body>
                 <Card.Title className="text-center fw-bold mt-2">Less Cost</Card.Title>
                 <div className="btn-btn-div mt-2">
-                    <button className="custom-btn btn-11 mx-2 w-100" type="button" ><span>Book Seat</span></button>
+                    <button className="custom-btn btn-11 mx-2 w-100" type="button" onClick={handlebook}><span>Book Seat</span></button>
                 </div>
                 <div className="btn-btn-div mt-3">
-                    <button className="custom-btn btn-10 mx-2 w-100" type="button" ><span>Rent Now</span></button>
+                    <button className="custom-btn btn-10 mx-2 w-100" type="button" onClick={handlerent}><span>Rent Now</span></button>
                 </div>
               </Card.Body>
             </Card>
@@ -64,10 +73,10 @@ const CardProduct = () => {
               <Card.Body>
                 <Card.Title className="text-center fw-bold mt-2">Easy Renting</Card.Title>
                 <div className="btn-btn-div mt-2">
-                    <button className="custom-btn btn-11 mx-2 w-100" type="button" ><span>Book Seat</span></button>
+                    <button className="custom-btn btn-11 mx-2 w-100" type="button" onClick={handlebook}><span>Book Seat</span></button>
                 </div>
                 <div className="btn-btn-div mt-3">
-                    <button className="custom-btn btn-10 mx-2 w-100" type="button" ><span>Rent Now</span></button>
+                    <button className="custom-btn btn-10 mx-2 w-100" type="button" onClick={handlerent}><span>Rent Now</span></button>
                 </div>
               </Card.Body>
             </Card>
@@ -78,10 +87,10 @@ const CardProduct = () => {
               <Card.Body>
                 <Card.Title className="text-center fw-bold mt-2">Ecofrendly</Card.Title>
                 <div className="btn-btn-div mt-2">
-                    <button className="custom-btn btn-11 mx-2 w-100" type="button" ><span>Book Seat</span></button>
+                    <button className="custom-btn btn-11 mx-2 w-100" type="button" onClick={handlebook}><span>Book Seat</span></button>
                 </div>
                 <div className="btn-btn-div mt-3">
-                    <button className="custom-btn btn-10 mx-2 w-100" type="button" ><span>Rent Now</span></button>
+                    <button className="custom-btn btn-10 mx-2 w-100" type="button" onClick={handlerent}><span>Rent Now</span></button>
                 </div>
               </Card.Body>
             </Card>
@@ -92,10 +101,10 @@ const CardProduct = () => {
               <Card.Body>
                 <Card.Title className="text-center fw-bold mt-2">Feasible</Card.Title>
                 <div className="btn-btn-div mt-2">
-                    <button className="custom-btn btn-11 mx-2 w-100" type="button" ><span>Book Seat</span></button>
+                    <button className="custom-btn btn-11 mx-2 w-100" type="button" onClick={handlebook}><span>Book Seat</span></button>
                 </div>
                 <div className="btn-btn-div mt-3">
-                    <button className="custom-btn btn-10 mx-2 w-100" type="button" ><span>Rent Now</span></button>
+                    <button className="custom-btn btn-10 mx-2 w-100" type="button" onClick={handlerent}><span>Rent Now</span></button>
                 </div>
               </Card.Body>
             </Card>
