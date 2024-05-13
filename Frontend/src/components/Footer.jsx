@@ -7,7 +7,7 @@ import instagram from '../assets/footerimage/instagram.png';
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <div className="footer mt-5">
       <div className="sb__footer section__padding">
         <div className="sb__footer-links">
           <div className="sb__footer-links_div">

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Button, Col, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
+
 export default function OrderConfirmationPage() {
     const { bookId } = useParams()
     const [book, setBook] = useState(null)
@@ -14,6 +16,7 @@ export default function OrderConfirmationPage() {
 
         const authToken = localStorage.getItem('authToken');
         if (!authToken) {
+            toast.warning('Login first')
             navigate('/');
         }
     }, []);
@@ -63,11 +66,11 @@ export default function OrderConfirmationPage() {
                 body: JSON.stringify(orderData)
             });
             if (response.ok && response.status === 200) {
-                console.log('Order placed successfully!');
+                toast.success('Order placed successfully!');
                 navigate(`/placed`);
 
             } else {
-                console.error('Failed to place order:', response.statusText);
+                toast.error('Failed to place order:', response.statusText);
                 navigate(`/error`)
             }
         }
@@ -85,13 +88,13 @@ export default function OrderConfirmationPage() {
             <h1 className="mb-4">Confirm Order</h1>
             <Row>
                 <Col md={4}>
-                    <Card className="mb-4" style={{ height: '420px', margin: '0 auto', backgroundColor: '#f0f0f0' }}>
+                    <Card className="mb-4 cnf-cnf-cnf" style={{ height: '420px', margin: '0 auto', backgroundColor: '#f0f0f0' }}>
                         <Card.Img variant="top" src={book.image} style={{ height: '350px', width: '65%', objectFit: 'cover', marginLeft: 'auto', marginRight: 'auto', marginTop: '-10px' }} />
                     </Card>
 
                 </Col>
                 <Col md={8}>
-                    <Card className="mb-4" style={{ height: "420px", backgroundColor: '#f0f0f0' }}>
+                    <Card className="mb-4 cnf-cnf-cnf" style={{ height: "420px", backgroundColor: '#f0f0f0' }}>
                         <Card.Body>
                             <Card.Title>{book.title}</Card.Title>
                             <Card.Text>{book.description}</Card.Text>
@@ -124,7 +127,10 @@ export default function OrderConfirmationPage() {
                                     />
                                 </div>
                             </div>
-                            <Button variant="outline-primary mt-2" onClick={() => handleConfirmOrder()}>Confirm Order</Button>
+                            {/* <Button variant="outline-primary mt-2" onClick={() => handleConfirmOrder()}>Confirm Order</Button> */}
+                            <div className="btn-btn-div mt-3">
+                                <button className="custom-btn btn-13 mx-2 w-50" type="button" onClick={() => handleConfirmOrder()}><span>Confirm Order</span></button>
+                            </div>
                         </Card.Body>
                     </Card>
                 </Col>

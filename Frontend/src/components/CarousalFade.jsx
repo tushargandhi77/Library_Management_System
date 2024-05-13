@@ -1,31 +1,38 @@
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from './ExampleCarouselImage';
+import L1 from '../assets/second images/slide1.jpg';
+import L2 from '../assets/second images/slide2.jpg';
+import L3 from '../assets/second images/slide3.jpg';
 
 function CarouselFade() {
   return (
     <Carousel fade>
       <Carousel.Item className='let-let'>
-        <ExampleCarouselImage altText="First slide" imageUrl="https://source.unsplash.com/random/900x700/?food"/>
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
+        <div className="image-overlay">
+          <ExampleCarouselImage imageUrl={L1} altText="First slide" />
+          <div className="caption-overlay">
+            <h3 style={{fontWeight:'bolder'}}>Vast Collection of Resources</h3>
+            <p style={{fontWeight:'bold',fontStyle:'italic'}}>A library should have a wide range of books, journals, and other materials to cater to the diverse needs of its users.</p>
+          </div>
+        </div>
       </Carousel.Item>
       <Carousel.Item className='let-let'>
-        <ExampleCarouselImage altText="Second slide" imageUrl="https://source.unsplash.com/random/900x700/?burger"/>
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
+        <div className="image-overlay">
+          <ExampleCarouselImage imageUrl={L2} altText="Second slide" />
+          <div className="caption-overlay">
+            <h3 style={{fontWeight:'bolder'}}>Comfortable Study Environment</h3>
+            <p style={{fontWeight:'bold',fontStyle:'italic'}}>Peaceful and conducive environment for study and research is crucial. This includes comfortable seating, adequate lighting, and minimal noise.</p>
+          </div>
+        </div>
       </Carousel.Item>
       <Carousel.Item className='let-let'>
-        <ExampleCarouselImage altText="Third slide" imageUrl="https://source.unsplash.com/random/900x700/?magic"/>
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
+        <div className="image-overlay">
+          <ExampleCarouselImage imageUrl={L3} altText="Third slide" />
+          <div className="caption-overlay">
+            <h3 style={{fontWeight:'bolder'}}>Collaborative Spaces</h3>
+            <p style={{fontWeight:'bold',fontStyle:'italic'}}>Spaces that encourage collaboration and group work, such as group study rooms or collaborative workstations.</p>
+          </div>
+        </div>
       </Carousel.Item>
     </Carousel>
   );

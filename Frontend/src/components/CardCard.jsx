@@ -1,52 +1,50 @@
 import React from 'react';
-import {Row,Col} from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import studyImage from '../assets/third images/study.jpg';
+import ebookImage from '../assets/third images/ebook.jpg';
+import bookImage from '../assets/third images/book.jpg';
 
 const BoxWrapper = () => {
     return (
-        
         <div className="box-wrapper">
             <figure className="shape-box shape-box_half">
-                <img src="https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="" />
+                <img src={studyImage} alt="Study" />
                 <div className="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
                 <figcaption>
                     <div className="show-cont">
-                        <h3 className="card-no">01</h3>
-                        <h4 className="card-main-title">Design</h4>
+                        <h3 className="card-main-title">STUDY</h3>
                     </div>
-                    <p className="card-content">Customer interactions, study and analysis of company branding through creative briefs. Creation of mock-up designs by using UI tools that simulate actions and pre-visualize the reactions.</p>
+                    <p className="card-content">Our library offers a peaceful study environment with vast resources, expert assistance, and comfortable facilities, enhancing academic pursuits effectively.</p>
+                    <Link to="/library" className="read-more-btn">Read More</Link>
+                </figcaption>
+                <span className="after"></span>
+            </figure>
+            <figure className="shape-box shape-box_half">
+                <img src={ebookImage} alt="E Book" />
+                <div className="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
+                <figcaption>
+                    <div className="show-cont">
+                        <h3 className="card-main-title">E BOOK</h3>
+                    </div>
+                    <p className="card-content">Customers can effortlessly download our ebook for free, accessing valuable content anytime, anywhere, with just a few clicks.</p>
                     <a href="#" className="read-more-btn">Read More</a>
                 </figcaption>
                 <span className="after"></span>
             </figure>
             <figure className="shape-box shape-box_half">
-                <img src="https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=375&q=80" alt="" />
+                <img src={bookImage} alt="book" />
                 <div className="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
                 <figcaption>
                     <div className="show-cont">
-                        <h3 className="card-no">02</h3>
-                        <h4 className="card-main-title">DEVELOP</h4>
+                        <h3 className="card-main-title">BORROW</h3>
                     </div>
-                    <p className="card-content">Customer interactions, study and analysis of company branding through creative briefs. Creation of mock-up designs by using UI tools that simulate actions and pre-visualize the reactions.</p>
-                    <a href="#" className="read-more-btn">Read More</a>
+                    <p className="card-content">Customers can easily borrow any book from our library by online or offline , selecting their desired book, presenting their library card, and checking out the book with the assistance of our staff.</p>
+                    <Link to="/books" className="read-more-btn">Read More</Link>
                 </figcaption>
                 <span className="after"></span>
             </figure>
-            <figure className="shape-box shape-box_half">
-                <img src="https://images.unsplash.com/photo-1498075702571-ecb018f3752d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=757&q=80" alt="" />
-                <div className="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
-                <figcaption>
-                    <div className="show-cont">
-                        <h3 className="card-no">03</h3>
-                        <h4 className="card-main-title">RESEARCH</h4>
-                    </div>
-                    <p className="card-content">Customer interactions, study and analysis of company branding through creative briefs. Creation of mock-up designs by using UI tools that simulate actions and pre-visualize the reactions.</p>
-                    <a href="#" className="read-more-btn">Read More</a>
-                </figcaption>
-                <span className="after"></span>
-            </figure>
-            
         </div>
-        
     );
 };
 

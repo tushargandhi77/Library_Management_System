@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import Barcode from 'react-barcode';
 import { useNavigate } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 export default function Orders() {
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();
@@ -10,6 +10,7 @@ export default function Orders() {
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
+        toast.warning("Login First")
         navigate('/');
     }
   }, []);
@@ -48,7 +49,7 @@ export default function Orders() {
       <div className="row d-flex justify-content-center mt-4">
         {orders.slice().reverse().map((order) => (
           <Col key={order._id} md={6}>
-            <Card style={{ width: '30rem', margin: '0 auto', backgroundColor: '#f0f0f0' }} className="mb-5 mt-2">
+            <Card style={{ width: '30rem', margin: '0 auto', backgroundColor: '#f0f0f0' }} className="mb-5 mt-2 ord-ord">
               <Card.Img
                 variant="top"
                 src={order.image}
