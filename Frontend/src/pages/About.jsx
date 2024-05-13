@@ -1,57 +1,83 @@
 import React from "react";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
-const About = () => {
+const AboutUs = () => {
   return (
-    <div className="container">
-      <h1 className="mt-5 display-4 text-primary">
-        About Library Management System
-      </h1>
-      <p className="lead">
-        Welcome to our Library Management System. Our system is designed to
-        efficiently manage the resources of a library, making it easier for
-        librarians to organize, track, and lend books to patrons.
-      </p>
-      <div className="row">
-        <div className="col-md-6">
-          <h2 className="mt-4">Our Mission</h2>
-          <p>
-            At Library Management System, our mission is to provide librarians
-            with robust tools to:
+    <Container className="py-5">
+      <header className="text-center mb-5">
+        <h1>About Us</h1>
+        <p className="lead">Learn more about our company</p>
+      </header>
+      <Row className="mb-5">
+        <Col md={6}>
+          <h2>Our Mission</h2>
+          <p className="lead">
+            We are dedicated to providing high-quality products and excellent
+            customer service to our clients.
           </p>
-          <ul className="list-unstyled">
-            <li>Efficiently catalog books and other resources</li>
-            <li>Streamline the borrowing and returning process</li>
-            <li>Generate insightful reports on library usage</li>
-            <li>Enhance the overall experience for library patrons</li>
-            {/* Additional Feature: Reservation System */}
-            <li>Facilitate book reservations and holds</li>
-          </ul>
-        </div>
-        <div className="col-md-6">
-          <h2 className="mt-4">Contact Us</h2>
-          <p>
-            If you have any questions, feedback, or suggestions, please don't
-            hesitate to contact us:
+        </Col>
+        <Col md={6}>
+          <h2>Our Vision</h2>
+          <p className="lead">
+            To be a leading innovator in our industry, exceeding customer
+            expectations and contributing positively to our community.
           </p>
+        </Col>
+      </Row>
+      <Row className="mb-5">
+        <Col md={6}>
+          <h2>Our Team</h2>
+          <Card className="team-member mb-3">
+            <Card.Body>
+              <Card.Title>John Doe</Card.Title>
+              <Card.Text>Founder & CEO</Card.Text>
+            </Card.Body>
+          </Card>
+          <Card className="team-member mb-3">
+            <Card.Body>
+              <Card.Title>Jane Smith</Card.Title>
+              <Card.Text>Head of Operations</Card.Text>
+            </Card.Body>
+          </Card>
+          {/* Add more team members */}
+        </Col>
+        <Col md={6}>
+          <h2>Join Our Team</h2>
+          <p className="lead">
+            We're always looking for talented individuals to join our team. If
+            you're passionate about what you do, check out our current job
+            openings.
+          </p>
+          <Button variant="primary">View Openings</Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h2>Our Values</h2>
           <ul className="list-unstyled">
-            <li>
-              Email:{" "}
-              <a href="mailto:info@librarymanagementsystem.com">
-                info@librarymanagementsystem.com
-              </a>
+            <li className="mb-3">
+              <strong>Quality:</strong> We never compromise on quality.
             </li>
-            <li>
-              Phone: <a href="tel:123-456-7890">123-456-7890</a>
+            <li className="mb-3">
+              <strong>Integrity:</strong> We conduct business with honesty and
+              transparency.
             </li>
-            {/* Additional Feature: Live Chat Support */}
-            <li>Live Chat Support available during business hours</li>
-            {/* Additional Feature: Social Media Integration */}
-            <li>Follow us on social media for updates and announcements</li>
+            <li className="mb-3">
+              <strong>Innovation:</strong> We embrace innovation to stay ahead
+              in the market.
+            </li>
+            <li className="mb-3">
+              <strong>Customer Satisfaction:</strong> We prioritize customer
+              satisfaction above all else.
+            </li>
           </ul>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+      <footer className="text-center mt-5">
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+      </footer>
+    </Container>
   );
 };
 
-export default About;
+export default AboutUs;
