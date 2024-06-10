@@ -22,7 +22,7 @@ export default function Cart() {
         if (!email) {
           navigate('/')
         }
-        const response = await fetch(`http://localhost:3000/cart/${email}`)
+        const response = await fetch(`https://library-management-backend-sepia.vercel.app/cart/${email}`)
         if (!response.ok) {
           throw new Error('Failed to fetch cart')
         }
@@ -42,7 +42,7 @@ export default function Cart() {
   }
 
   const handledelete = (bookId) => {
-    fetch(`http://localhost:3000/cart/bookid/${bookId}`, {
+    fetch(`https://library-management-backend-sepia.vercel.app/cart/bookid/${bookId}`, {
       method: 'DELETE'
     })
       .then(response => {
