@@ -23,7 +23,7 @@ export default function OrderConfirmationPage() {
     }, []);
 
     useEffect(() => {
-        fetch(`https://library-management-backend-sepia.vercel.app/${bookId}`)
+        fetch(`https://library-management-backend-sepia.vercel.app/books/${bookId}`)
             .then(response => response.json())
             .then(data => {
                 setBook(data);
