@@ -22,7 +22,7 @@ export default function Library() {
       }, []);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/library/')
+        axios.get('https://library-management-backend-sepia.vercel.app/library/')
             .then(response => {
                 setTimeout(() => { 
                     SetlibraryDetails(response.data);
