@@ -25,7 +25,7 @@ export default function SeatBook() {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/library/${id}`)
+        fetch(`https://library-management-backend-sepia.vercel.app/library/${id}`)
             .then(response => response.json())
             .then(data => {
                 Setlibrary(data);
@@ -53,7 +53,7 @@ export default function SeatBook() {
                 startTime: startTimeFull,
                 endTime: endTimeFull
             };
-            const response = await fetch('http://localhost:3000/booklibrary/', {
+            const response = await fetch('https://library-management-backend-sepia.vercel.app/booklibrary/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ export default function SeatBook() {
 
             if (response.ok && response.status === 200) {
 
-                const availablityResponse = await fetch(`http://localhost:3000/library/${id}`)
+                const availablityResponse = await fetch(`https://library-management-backend-sepia.vercel.app/library/${id}`)
                 const availabilityData = await availablityResponse.json();
                 const currentavailable = availabilityData.available;
 
@@ -74,7 +74,7 @@ export default function SeatBook() {
 
                 const updatedAvailability = currentavailable - seatValue;
 
-                const updateResponse = await fetch(`http://localhost:3000/library/${id}`,{
+                const updateResponse = await fetch(`https://library-management-backend-sepia.vercel.app/library/${id}`,{
                     method: 'POST',
                     headers:{
                         'Content-Type': 'application/json'
