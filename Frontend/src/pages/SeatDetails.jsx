@@ -34,13 +34,13 @@ export default function SeatDetails() {
                     const id = booking.LibId;
                     const _id = booking._id
                     try {
-                        const availableResponse = await axios.get(`http://localhost:3000/library/${id}`);
+                        const availableResponse = await axios.get(`https://library-management-backend-sepia.vercel.app/library/${id}`);
                         const currentAvailableSeats = availableResponse.data.available;
                         console.log(currentAvailableSeats);
                         const newAvailableSeats = currentAvailableSeats + booking.seat;
                         console.log(newAvailableSeats);
-                        await axios.post(`http://localhost:3000/library/${id}`, { available: newAvailableSeats });
-                        await axios.put(`http://localhost:3000/booklibrary/${_id}`, { expired: true });
+                        await axios.post(`https://library-management-backend-sepia.vercel.app/library/${id}`, { available: newAvailableSeats });
+                        await axios.put(`https://library-management-backend-sepia.vercel.app/booklibrary/${_id}`, { expired: true });
                         return { ...booking, expired: true };
                     } catch (error) {
                         console.log('Error updating seat availability:', error);
