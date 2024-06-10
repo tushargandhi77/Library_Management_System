@@ -17,7 +17,7 @@ export default function SeatDetails() {
     }, [])
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/booklibrary/${email}`)
+        axios.get(`https://library-management-backend-sepia.vercel.app/booklibrary/${email}`)
             .then(response => {
                 setLibrary(response.data)
             })
