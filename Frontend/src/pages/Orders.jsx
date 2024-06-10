@@ -23,7 +23,7 @@ export default function Orders() {
         if (!email) {
           navigate('/');
         }
-        const response = await fetch('http://localhost:3000/rent/', {
+        const response = await fetch('https://library-management-backend-sepia.vercel.app/rent/', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
