@@ -21,7 +21,7 @@ export default function BooksPage() {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3000/books/')
+    fetch('https://library-management-backend-sepia.vercel.app/books/')
       .then(response => response.json())
       .then(data => {
         setTimeout(() => {
@@ -50,7 +50,7 @@ export default function BooksPage() {
         stock: stock,
         image: image
       }
-      const response = await fetch('http://localhost:3000/cart/', {
+      const response = await fetch('https://library-management-backend-sepia.vercel.app/cart/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
