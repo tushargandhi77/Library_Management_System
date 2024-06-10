@@ -23,7 +23,7 @@ export default function OrderConfirmationPage() {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/books/${bookId}`)
+        fetch(`https://library-management-backend-sepia.vercel.app/${bookId}`)
             .then(response => response.json())
             .then(data => {
                 setBook(data);
@@ -40,7 +40,7 @@ export default function OrderConfirmationPage() {
     const handleConfirmOrder = async () => {
         try {
 
-            fetch(`http://localhost:3000/cart/bookid/${bookId}`, {
+            fetch(`https://library-management-backend-sepia.vercel.app/cart/bookid/${bookId}`, {
                 method: 'DELETE'
             })
                 .then(response => {
@@ -59,7 +59,7 @@ export default function OrderConfirmationPage() {
                 stock: quantity,
                 duration: dur
             };
-            const response = await fetch('http://localhost:3000/rent/', {
+            const response = await fetch('https://library-management-backend-sepia.vercel.app/rent/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
