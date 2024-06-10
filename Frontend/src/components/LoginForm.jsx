@@ -7,7 +7,7 @@ export default function LoginForm({ handleCloseLoginModal }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:3000/users/login', {
+        const response = await fetch('https://library-management-backend-sepia.vercel.app/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
