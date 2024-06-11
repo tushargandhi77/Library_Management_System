@@ -46,7 +46,7 @@ export default function Navbar() {
                     navigate('/');
                     return; // Added return statement to avoid executing further code
                 }
-                const response = await fetch(`http://localhost:3000/cart/${email}`);
+                const response = await fetch(`https://library-management-backend-sepia.vercel.app/cart/${email}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch cart');
                 }
@@ -71,7 +71,7 @@ export default function Navbar() {
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container p-2">
                     <Link className="navbar-brand italic-text animate-charcter-1" to="/">LibraLogic</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
@@ -87,7 +87,7 @@ export default function Navbar() {
                             </li>
                             {(localStorage.getItem("authToken")) ?
                                 <li className="nav-item dropdown mx-2">
-                                    <Link className="nav-link dropdown-toggle active" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Details</Link>
+                                    <Link className="nav-link dropdown-toggle active" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Details</Link>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><Link className="dropdown-item" to="https://tushargandhi77-book-recommender-system.hf.space/">Recommend</Link></li>
                                         <li><Link className="dropdown-item" to="/books">Store</Link></li>
