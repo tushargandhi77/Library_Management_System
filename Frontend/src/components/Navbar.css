@@ -109,3 +109,18 @@ ul li{
   nav ul li span:nth-child(4) {
     --n: 4;
   }
+
+  /* Existing styles... */
+
+/* Add styles for mobile view */
+@media (max-width: 768px) {
+  .form-control-control {
+      width: 100% !important;
+      margin-bottom: 1rem;
+
+  }
+
+  .navbar-collapse {
+      flex-direction: column;
+  }
+}
