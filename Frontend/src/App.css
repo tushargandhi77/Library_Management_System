@@ -1389,3 +1389,7 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 .cont-cont-loader{
   height: 290px;
 }
+
+.btn-btn-xx-yy{
+  width: 160px !important;
+}

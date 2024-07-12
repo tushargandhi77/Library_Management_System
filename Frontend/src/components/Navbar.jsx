@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
+import { useMediaQuery } from 'react-responsive';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -73,6 +74,8 @@ export default function Navbar() {
         setIsNavbarOpen(false);
     };
 
+    const isMobile = useMediaQuery({ maxWidth: 768 });
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -93,17 +96,37 @@ export default function Navbar() {
                                 <Link className="nav-link" to="/about" onClick={closeNavbar}>About</Link>
                             </li>
                             {localStorage.getItem("authToken") && (
-                                <li className="nav-item dropdown mx-2">
-                                    <Link className="nav-link dropdown-toggle active" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Details</Link>
-                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><Link className="dropdown-item" to="https://tushargandhi77-book-recommender-system.hf.space/" onClick={closeNavbar}>Recommend</Link></li>
-                                        <li><Link className="dropdown-item" to="/books" onClick={closeNavbar}>Store</Link></li>
-                                        <li><Link className="dropdown-item" to="/library" onClick={closeNavbar}>Library</Link></li>
-                                        <li><hr className="dropdown-divider" /></li>
-                                        <li><Link className="dropdown-item" to="/order" onClick={closeNavbar}>Order Details</Link></li>
-                                        <li><Link className="dropdown-item" to="/seatdetails" onClick={closeNavbar}>Seat Details</Link></li>
-                                    </ul>
-                                </li>
+                                isMobile ? (
+                                    <>
+                                        <li className="nav-item mx-2">
+                                            <Link className="nav-link" to="https://tushargandhi77-book-recommender-system.hf.space/" onClick={closeNavbar}>Recommend</Link>
+                                        </li>
+                                        <li className="nav-item mx-2">
+                                            <Link className="nav-link" to="/books" onClick={closeNavbar}>Store</Link>
+                                        </li>
+                                        <li className="nav-item mx-2">
+                                            <Link className="nav-link" to="/library" onClick={closeNavbar}>Library</Link>
+                                        </li>
+                                        <li className="nav-item mx-2">
+                                            <Link className="nav-link" to="/order" onClick={closeNavbar}>Order Details</Link>
+                                        </li>
+                                        <li className="nav-item mx-2">
+                                            <Link className="nav-link" to="/seatdetails" onClick={closeNavbar}>Seat Details</Link>
+                                        </li>
+                                    </>
+                                ) : (
+                                    <li className="nav-item dropdown mx-2">
+                                        <Link className="nav-link dropdown-toggle active" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Details</Link>
+                                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><Link className="dropdown-item" to="https://tushargandhi77-book-recommender-system.hf.space/" onClick={closeNavbar}>Recommend</Link></li>
+                                            <li><Link className="dropdown-item" to="/books" onClick={closeNavbar}>Store</Link></li>
+                                            <li><Link className="dropdown-item" to="/library" onClick={closeNavbar}>Library</Link></li>
+                                            <li><hr className="dropdown-divider" /></li>
+                                            <li><Link className="dropdown-item" to="/order" onClick={closeNavbar}>Order Details</Link></li>
+                                            <li><Link className="dropdown-item" to="/seatdetails" onClick={closeNavbar}>Seat Details</Link></li>
+                                        </ul>
+                                    </li>
+                                )
                             )}
                         </ul>
                         <Form.Control
