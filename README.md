@@ -1,4 +1,9 @@
-# Library Management System - MERN Stack
+# Library Management System 
+
+![Data Science](https://img.shields.io/badge/Web%20Development-Project-blue)
+![Python](https://img.shields.io/badge/javascript-Node-green)
+![Machine Learning](https://img.shields.io/badge/MERN%20Stack-JS-orange)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 
 This project implements a Library Management System using the MERN stack (MongoDB, Express.js, React, Node.js).  It allows users to manage books, members, and loans within a library.
 
